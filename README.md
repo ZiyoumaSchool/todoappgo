@@ -12,16 +12,9 @@
 <h3 align="center">TodoAppGo</h3>
 
   <p align="center">
-    The Platform of freelancers and professionals
+    Manage Your Tasks !
     <br />
-    <a href="https://github.com/github_username/repo_name"><strong>Explore the docs »</strong></a>
-    <br />
-    <br />
-    <a href="https://github.com/github_username/repo_name">View Demo</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Report Bug</a>
-    ·
-    <a href="https://github.com/github_username/repo_name/issues">Request Feature</a>
+    
   </p>
 </div>
 
@@ -57,7 +50,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-Shiny-agency is a web app who helps the freelancers offer theirs services to customers. Also Enterprises an particular can also find the profiles they need on this platform.<br/><br/>
+TodoAppGo is an application who helps you manage your task for better daily productivity<br/><br/>
 [![Product Name Screen Shot][product-screenshot]](https://www.figma.com/file/KlrToaA7Dj1Sm0opq37ICg/React-interm%C3%A9diaire?node-id=0%3A1)
 
 <!-- Here's a blank template to get started: To avoid retyping too much info. Do a search and replace with your text editor for the following: `github_username`, `repo_name`, `twitter_handle`, `linkedin_username`, `email`, `email_client`, `project_title`, `project_description` -->
@@ -108,6 +101,9 @@ To have a full benefit from this tuto, some skills are recommanded susch as :
 5.  **Start app in development mode**
 
     Run `yarn start` to see your component's stories at `http://localhost:3000`
+    
+    If you have succeed well done !!! You can start focusing on the app
+    
 
 ## 🔎 What's inside?
 
@@ -125,23 +121,7 @@ A quick look at the top-level files and directories included with this template.
     ├── yarn.lock
     └── README.md
 
-## 🔎 What's inside?
 
-A quick look at the top-level files and directories included with this template.
-
-    .
-    ├── .storybook
-    ├── node_modules
-    ├── public
-    ├── src
-    ├── .env
-    ├── .gitignore
-    ├── LICENSE
-    ├── package.json
-    ├── yarn.lock
-    └── README.md
-
-If you have succeed well done !!! You can start focusing on the app
 
 
 
@@ -188,9 +168,9 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@twitter_handle](https://twitter.com/twitter_handle) - email@email_client.com
+TOGNIA Noël Henri - h.tognia@ziyouma-agency.com
 
-Project Link: [https://github.com/github_username/repo_name](https://github.com/github_username/repo_name)
+Project Link: [https://github.com/github_username/repo_name](https://github.com/ZiyoumaSchool/todoappgo)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
 
