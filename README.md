@@ -114,6 +114,12 @@ A quick look at the top-level files and directories included with this template.
     ├── node_modules
     ├── public
     ├── src
+          |──assets
+          |──components
+          |──stories
+              |──assets
+          |──utils
+              |──styles
     ├── .env
     ├── .gitignore
     ├── LICENSE
