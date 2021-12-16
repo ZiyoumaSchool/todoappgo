@@ -5,6 +5,7 @@ export default function Task({ task: { id, title, dateBegin, dateEnd, descriptio
   return (
 <form>
     <div className="form-group">
+    
       <input type="text" value={title} readOnly={true} />
     </div><br/><br/>
     <div className="form-group">

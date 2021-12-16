@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import logo from '../assets/logo.png'
+import logo from './assets/logo.png'
 
-import { Button } from './Button';
+//import { Button } from '../../stories/Button';
 import './header.css';
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
@@ -25,10 +25,10 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
             />
           </g>
         </svg> */}
-
-      <img src = {logo} width="50px" height="50px" alt='TodoAppGo' />
-
-        <div className='text-primary'> ToDoAppGo</div>
+        <div className='text-primary'>
+          <img src = {logo} width="50px" height="50px" alt='TodoAppGo' />
+                <h4>ToDoAppGo</h4>
+        </div>
       </div>
       <div>
         {/* {user ? (

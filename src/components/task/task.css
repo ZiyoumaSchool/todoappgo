@@ -1,0 +1,67 @@
+/* TasKAdd CSS */
+
+.wrapper {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid rgba(240, 79, 4, 0.953);
+    padding: 2px 2px;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.add-task-1 {
+    color : rgb(7, 54, 30);
+    text-align:right;
+    padding-left: 10%;
+    padding-right: 10%;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+    width: 80%;
+    height: 50px;
+}
+.add-task-2 {
+    color : rgb(7, 54, 30);
+    text-align: left;
+    padding: 32px;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+    width: 20%;
+    height: 150px;
+}
+
+.add-task-3 {
+    color : rgb(7, 54, 30);
+    text-align: left;
+    padding: 32px;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+    width: 10%;
+    height: 150px;
+}
+
+
+/* TaskItem CSS */
+
+.taskitem-1 {
+    color : rgb(7, 54, 30);
+    text-align:right;
+    padding-left: 2%;
+    padding-right: 2%;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: left;
+    position: relative;
+    display: inline-block;
+    width: 50%;
+    height: 150px;
+}

@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import TaskAdd from './TaskAdd';
+import TaskAdd from '../components/task/TaskAdd';
 
 export default {
   component: TaskAdd,

@@ -1,15 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+// import App from './App';
+import TaskAdd from './components/task/TaskAdd'
 import reportWebVitals from './reportWebVitals';
-import HeaderComponent from './components/Header'
+import HeaderComponent from './components/Header/index'
 import 'bootstrap/dist/css/bootstrap.css';
 
 ReactDOM.render(
   <React.StrictMode>
     <HeaderComponent />
-    <App />    
+    <br/>
+    {/* <App /> */}
+    <TaskAdd/>  
   </React.StrictMode>,
   document.getElementById('root')
 );

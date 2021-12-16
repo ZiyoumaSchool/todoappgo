@@ -1,22 +1,22 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import Task from '../components/task/Task';
+import TaskItem from '../components/task/TaskItem';
 
 export default {
-  component: Task,
-  title: 'Task',
+  component: TaskItem,
+  title: 'TaskItem',
   dateBegin: new Date(2021, 0, 1, 9, 0),
   dateEnd: new Date(2021, 0, 1, 9, 0),
   description: 'Description of the task is going there',
 };
 
-const Template = args => <Task {...args} />;
+const Template = args => <TaskItem {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
-  task: {
+  taskItem: {
     id: '1',
-    title: 'Test Task',
+    title: 'Test TaskItem',
     dateBegin: new Date(2021, 0, 1, 9, 0),
     dateEnd: new Date(2021, 0, 1, 9, 0),
     description: 'Default Description of the task inbox is going there',
@@ -27,8 +27,8 @@ Default.args = {
 
 export const Pinned = Template.bind({});
 Pinned.args = {
-  task: {
-    ...Default.args.task,
+  taskItem: {
+    ...Default.args.taskItem,
     state: 'TASK_PINNED',
     description: 'Default Description of the task pinned is going there',
   },
@@ -36,8 +36,8 @@ Pinned.args = {
 
 export const Archived = Template.bind({});
 Archived.args = {
-  task: {
-    ...Default.args.task,
+  taskItem: {
+    ...Default.args.taskItem,
     state: 'TASK_ARCHIVED',
     description: 'Default Description of the task archived is going there',
   },
