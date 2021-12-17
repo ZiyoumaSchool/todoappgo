@@ -6,6 +6,7 @@ import TaskAdd from './components/task/TaskAdd'
 import reportWebVitals from './reportWebVitals';
 import HeaderComponent from './components/Header/index'
 import 'bootstrap/dist/css/bootstrap.css';
+import TaskList from './components/task/TaskList';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,6 +14,7 @@ ReactDOM.render(
     <br/>
     {/* <App /> */}
     <TaskAdd/>  
+    <TaskList/> 
   </React.StrictMode>,
   document.getElementById('root')
 );

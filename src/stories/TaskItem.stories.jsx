@@ -17,8 +17,9 @@ Default.args = {
   taskItem: {
     id: '1',
     title: 'Test TaskItem',
+    // dateBegin: new Date(2021, 0, 1, 9, 0),
     dateBegin: new Date(2021, 0, 1, 9, 0),
-    dateEnd: new Date(2021, 0, 1, 9, 0),
+    dateEnd: "2021-12-31",
     description: 'Default Description of the task inbox is going there',
     state: 'TASK_INBOX',
     updatedAt: new Date(2021, 0, 1, 9, 0),

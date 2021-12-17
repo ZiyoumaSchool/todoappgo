@@ -1,6 +1,6 @@
 # Roadmap
 
-### [x.x.x] - Delivery Date
+**[x.x.x] - [ESTIMATED_DELIVERY_DATE]**
 
 **[1.0.0] - [2021-12-17]**
 - [] Add a new task to the taskList
@@ -13,8 +13,7 @@
 - [] Delete Task.
 
 
-**[x.x.x] - [ESTIMATED_DELIVERY_DATE]**
-- [] Add DINNextLTPro-Medium
+
 
 
 [BACKLOG]
