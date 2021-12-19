@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import TaskItem from '../components/task/TaskItem';
+import TaskItem from '../components/Task/TaskItem';
 
 export default {
   component: TaskItem,

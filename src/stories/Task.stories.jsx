@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import Task from '../components/task/Task';
+import Task from '../components/Task/Task';
 
 export default {
   component: Task,

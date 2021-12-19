@@ -1,16 +1,16 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import TaskAdd from '../components/task/TaskAdd';
+import InputTextNewTask from '../components/Task/InputTextNewTask';
 
 export default {
-  component: TaskAdd,
+  component: InputTextNewTask,
   title: 'TaskAdd',
   dateBegin: new Date(2021, 0, 1, 9, 0),
   dateEnd: new Date(2021, 0, 1, 9, 0),
   description: 'Description of the task is going there',
 };
 
-const Template = args => <TaskAdd {...args} />;
+const Template = args => <InputTextNewTask {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {

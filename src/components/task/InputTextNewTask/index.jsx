@@ -1,9 +1,9 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
-import './task.css';
+import '../task.css';
 
 
-export default function TaskAdd({title}) {
+export default function InputTextNewTask({title}) {
 //export default function TaskAdd({ task: { id, title, dateBegin, dateEnd, description, state }, onArchiveTask, onPinTask }) {
   return (
 <form>

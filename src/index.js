@@ -2,19 +2,21 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import TaskAdd from './components/task/TaskAdd'
+import InputTextNewTask from './components/Task/InputTextNewTask'
+import ButtonSubmit from './components/ButtonSubmit';
 import reportWebVitals from './reportWebVitals';
 import HeaderComponent from './components/Header/index'
 import 'bootstrap/dist/css/bootstrap.css';
-import TaskList from './components/task/TaskList';
+import TaskList from './components/Task/TaskList';
 
 ReactDOM.render(
   <React.StrictMode>
     <HeaderComponent />
     <br/>
     {/* <App /> */}
-    <TaskAdd/>  
+    <InputTextNewTask />  
     <TaskList/> 
+    <ButtonSubmit />
   </React.StrictMode>,
   document.getElementById('root')
 );
