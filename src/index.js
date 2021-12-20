@@ -2,8 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 // import App from './App';
-import InputTextNewTask from './components/Task/InputTextNewTask'
-import ButtonSubmit from './components/ButtonSubmit';
+// import InputTextNewTask from './components/Task/InputTextNewTask'
+// import ButtonSubmit from './components/ButtonSubmit';
+import SectionAddTask from './components/Task/SectionAddTask';
 import reportWebVitals from './reportWebVitals';
 import HeaderComponent from './components/Header/index'
 import 'bootstrap/dist/css/bootstrap.css';
@@ -14,9 +15,10 @@ ReactDOM.render(
     <HeaderComponent />
     <br/>
     {/* <App /> */}
-    <InputTextNewTask />  
-    <TaskList/> 
-    <ButtonSubmit />
+    {/* <InputTextNewTask /> 
+    <ButtonSubmit />  */}
+    <SectionAddTask /><br/><br/><br/>
+    <TaskList/>     
   </React.StrictMode>,
   document.getElementById('root')
 );
