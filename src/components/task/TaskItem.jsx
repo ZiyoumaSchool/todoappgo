@@ -12,7 +12,7 @@ export default function TaskItem({ taskItem: {  id, title, dateBegin, dateEnd, d
         <input
           type="checkbox"
           defaultChecked={state === 'TASK_ARCHIVED'}
-          disabled={true}
+          disabled={false}
           name="checked"
         />
         <span

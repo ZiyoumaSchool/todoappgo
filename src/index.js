@@ -9,6 +9,8 @@ import reportWebVitals from './reportWebVitals';
 import HeaderComponent from './components/Header/index'
 import 'bootstrap/dist/css/bootstrap.css';
 import TaskList from './components/Task/TaskList';
+import TaskHomePage from './pages/TaskHomePage';
+
 
 ReactDOM.render(
   <React.StrictMode>
@@ -16,9 +18,11 @@ ReactDOM.render(
     <br/>
     {/* <App /> */}
     {/* <InputTextNewTask /> 
-    <ButtonSubmit />  */}
-    <SectionAddTask /><br/><br/><br/>
-    <TaskList/>     
+    <ButtonSubmit />  
+    <SectionAddTask />*/}
+    <TaskHomePage />
+    <br/><br/><br/><br/><br/><br/>
+    {/* <TaskList/>      */}
   </React.StrictMode>,
   document.getElementById('root')
 );

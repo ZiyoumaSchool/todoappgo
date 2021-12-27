@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import './ButtonSubmit.css';
 
 
-function ButtonSubmit ({ primary, disable, backgroundColor, size, label, ...props }) {
+function ButtonSubmit ({ primary, disable, backgroundColor, size, label, onClick, ...props }) {
 
     //const mode = primary ? 'button--primary' : 'button--secondary';
 
@@ -20,6 +20,7 @@ function ButtonSubmit ({ primary, disable, backgroundColor, size, label, ...prop
             className="btn btn-primary" 
             size={size}
             disabled={disable}
+            onClick={onClick}
             >
              {label}
             </button>
