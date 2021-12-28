@@ -1,9 +1,10 @@
-import React from 'react';
+import React, {useContext} from 'react';
+import { ApplicationContext } from '../../../pages/TaskHomePage'
 import 'bootstrap/dist/css/bootstrap.css';
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask';
 import ButtonSubmit from '../../ButtonSubmit';
-import { useState, useContext } from 'react';
+import { useState } from 'react';
 import { createContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import TaskHomePage from '../../../pages/TaskHomePage';
@@ -16,71 +17,80 @@ export const ListOfTask = createContext();
 
 export default function SectionAddTask(Tasksource) {
 
-  
-  const [value, setValue] = useState('');
+  const {state, setState} = useContext(ApplicationContext);
+  const [myvalue, setMyvalue] = useState('');
 
-  const myvar = {
-      items:Tasksource,
-      currentItem:{
-      title:'ufffyfyf',
-      id: Date.now()
-    }
-  }
+  console.log("akiaka", state)
+
+  // const myvar = {
+  //     items:Tasksource,
+  //     currentItem:{
+  //     title:'ufffyfyf',
+  //     id: Date.now()
+  //   }
+  // }
+
+  //var [state, setState] = useState(myvar)
 
   // console.log("Items Myvar", myvar.items)
 
-  const items = Tasksource
- 
-
-
-  var [state, setState] = useState(myvar)
+  //const items = Tasksource
   
   //console.log("Items State1", state.items)
 
-  function handleChange (event){
-          setValue(event.target.value);
-          setState({
-              currentItem:{
-              title:value+'a',
-              id: Date.now()
-            }
-          }
-          )
-        };
+  const val = {title:'', id:Date.now()}
+  const [currentItem, setCurrentItem] = useState(val)
 
-  // function handleAdd() {
-  //   //const newList = list.concat({ value });
-  //   // setList(newList);
-  //   dispatchList({ type: 'ADD_ITEM', value, id: uuidv4() });
-  //   setValue('');
-  //       }
+  function handleChange (event){
+          setMyvalue(event.target.value);
+          console.log("p35", myvalue);
+
+          // setState({
+          //     items: state.items.push({title:myvalue, id: Date.now() }),
+          //     currentItem:{
+          //     title:myvalue+'a',
+          //     id: Date.now()
+          //   }
+          // }
+          // )
+        };
+  
 
   function handleAdd(e) {
     e.preventDefault();
-    console.log("Items Statefull", state.items)
-    const newItem = state.currentItem;
-    console.log("okkk",newItem);
-
-  if(newItem.title!==""){
-    const newItems = [state.items];
-    //console.log("Items Statefull", newItems.items)    
-    // newItems.push(newItem);
-
-    console.log("Le paradis est le but", newItem)
-    //   setState({
-    //     items:newItems,
-    //     currentItem:{
-    //       title: '',
-    //       id: ''
-    //     }
+    console.log("patatras", myvalue);
+    console.log("Congré chaud", state)
+    // const newState = state.push(
+    //   { id: Date.now(),
+    //     title:myvalue,       
+    //     dateEnd: "2021-12-31",
+    //     watched: false,
+    //     state: 'TASK_INBOX'
     //   }
-        
     //   )
-    }
-  }
+    // console.log('state',state.push(
+    //   { id: Date.now(),
+    //     title:myvalue,       
+    //     dateEnd: "2021-12-31",
+    //     watched: false,
+    //     state: 'TASK_INBOX'
+    //   }
+    //   ))
+    console.log("New List", state)
+    setState([...state, { id: Date.now(),
+      title:myvalue,       
+      dateEnd: "2021-12-31",
+      watched: false,
+      state: 'TASK_INBOX'
+    }])
+    console.log('state--->', state)
+    //console.log("Ici c le bon haricot", state)
+    //   if(myvalue!==""){
 
-
-    
+    //     console.log("akiaka", state)        
+    //     //setState(  )      
+    // }
+  }    
 
   return (
 <form>
@@ -88,23 +98,20 @@ export default function SectionAddTask(Tasksource) {
       <div className='add-task-1'> 
             
             <InputTextNewTask 
-                value={value} 
+                myvalue={myvalue} 
                 handleChange={handleChange}
              />
 
             <ButtonSubmit 
                 // disable={value===""?"true":"false"}
-                disable={!value} 
+                disable={!myvalue} 
                 onClick={handleAdd}
-             />
-                        
+             />                        
           
       </div>
     </div>  
 
 </form>
   );
-
-
 }
 

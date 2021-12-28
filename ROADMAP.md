@@ -7,7 +7,7 @@
 - [] Change name of some components - Almost Ok
 - [] Add a button submit for adding a new task - Almost Ok
 - [] Add the section AddNewTask that includes the input text and the submit Button - Almost Ok
-- [] Create the page that includes the above sections with the tasklist section
+- [] Create the page that includes the above sections with the tasklist section - Almost OK
 - [] Add a new task to the taskList by pressing "ENTER" or clicking on "Add" button
 - [] Show the TaskList updated
 
@@ -17,7 +17,7 @@
 
 **[1.1.0] - [2021-12-20]**
 
-- [] Selec Task on the List
+- [] Select Task on the List
 - [] Edit Task.
 - [] Delete Task.
 
