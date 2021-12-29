@@ -6,14 +6,14 @@ import PropTypes from 'prop-types';
 
 
 
-function InputTextNewTask({title, value, handleChange}) {
+function InputTextNewTask({title, myvalue, handleChange}) {
 
         
 
 //export default function TaskAdd({ task: { id, title, dateBegin, dateEnd, description, state }, onArchiveTask, onPinTask }) {
   return (
     <div className='add-task-1'>
-          <input type="text"  name="title"  placeholder="Add a new task - Press Enter"
+          <input type="text"  name="title" value={myvalue}  placeholder="Add a new task - Press Enter"
           className="form-control border border-primary rounded" onChange={handleChange} />
 
 

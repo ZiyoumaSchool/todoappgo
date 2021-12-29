@@ -39,20 +39,11 @@ export default function SectionAddTask(Tasksource) {
   //console.log("Items State1", state.items)
 
   const val = {title:'', id:Date.now()}
-  const [currentItem, setCurrentItem] = useState(val)
+  // const [currentItem, setCurrentItem] = useState(val)
 
   function handleChange (event){
           setMyvalue(event.target.value);
-          console.log("p35", myvalue);
-
-          // setState({
-          //     items: state.items.push({title:myvalue, id: Date.now() }),
-          //     currentItem:{
-          //     title:myvalue+'a',
-          //     id: Date.now()
-          //   }
-          // }
-          // )
+          //console.log("p35", myvalue);
         };
   
 
@@ -60,22 +51,7 @@ export default function SectionAddTask(Tasksource) {
     e.preventDefault();
     console.log("patatras", myvalue);
     console.log("Congré chaud", state)
-    // const newState = state.push(
-    //   { id: Date.now(),
-    //     title:myvalue,       
-    //     dateEnd: "2021-12-31",
-    //     watched: false,
-    //     state: 'TASK_INBOX'
-    //   }
-    //   )
-    // console.log('state',state.push(
-    //   { id: Date.now(),
-    //     title:myvalue,       
-    //     dateEnd: "2021-12-31",
-    //     watched: false,
-    //     state: 'TASK_INBOX'
-    //   }
-    //   ))
+   
     console.log("New List", state)
     setState([...state, { id: Date.now(),
       title:myvalue,       
@@ -84,12 +60,7 @@ export default function SectionAddTask(Tasksource) {
       state: 'TASK_INBOX'
     }])
     console.log('state--->', state)
-    //console.log("Ici c le bon haricot", state)
-    //   if(myvalue!==""){
-
-    //     console.log("akiaka", state)        
-    //     //setState(  )      
-    // }
+    setMyvalue('');   
   }    
 
   return (
