@@ -1,12 +1,14 @@
-import React from 'react';
+import React, {useContext} from 'react';
 import SectionAddTask from '../components/Task/SectionAddTask';
 import { Tasksource } from '../datas/Tasksource';
 import { v4 as uuidv4 } from 'uuid';
 import TaskList from '../components/Task/TaskList';
+//import 'bootstrap/dist/css/bootstrap.css';
 //import { useState, useCallback } from 'react';
 import {createContext, useState} from 'react';
 
 export const ApplicationContext = createContext();
+
 
 export default function TaskHomePage() {
 
@@ -61,7 +63,7 @@ export default function TaskHomePage() {
             //TaskSource = {initialList}
        />
         {/* <SectionAddTask /> */}
-        <TaskList tasks={state} />
+        <TaskList tasks={state}/>
         </ApplicationContext.Provider>
     </>
         

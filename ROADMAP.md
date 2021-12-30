@@ -17,8 +17,8 @@
 - [] Delete Task.
 
 **[1.0.0] - [2021-12-17]**
-- [] Add a new task to the taskList - [2021-12-28]
-- [] Show the TaskList - [2021-12-28]
+- [] Add a new task to the taskList - Release Date [2021-12-28]
+- [] Show the TaskList - Release Date [2021-12-28]
 
 **[1.1.0] - [2021-12-20]**
 

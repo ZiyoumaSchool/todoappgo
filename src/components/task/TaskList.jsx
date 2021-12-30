@@ -1,10 +1,25 @@
-import React from 'react';
+import React, {useContext, useState}  from 'react';
 import PropTypes from 'prop-types';
 import {Tasksource} from '../../datas/Tasksource';
+import "../../index.css"
+import { ApplicationContext } from '../../pages/TaskHomePage';
 
 import TaskItem from './TaskItem';
 
+
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
+
+  const {state, setState} = useContext(ApplicationContext);
+  // const [myvalue, setMyvalue] = useState('');
+
+  function OnArchiveTask(id){
+    
+    console.log("Voici alors l id", id)
+    //const {state, setState} = useContext(ApplicationContext);
+    console.log("La liste", state)
+    setState(state.filter(item=>item.id!==id))
+  }
+
   const events = {
     onPinTask,
     onArchiveTask,
@@ -41,15 +56,14 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       </div>
     );
   }
-//   const tasksInOrder = [
-//     ...tasks.filter(t => t.state === 'TASK_PINNED'),
-//     ...tasks.filter(t => t.state !== 'TASK_PINNED'),
-//   ];
+  const tasksInOrder = [
+    ...tasks.filter(t => t.state === 'TASK_PINNED'),
+    ...tasks.filter(t => t.state !== 'TASK_PINNED'),
+  ];
   return (
     <div className="list-items">
-      {/* {tasksInOrder.map(taskItem => ( */}
-        {tasks.map(taskItem => ( 
-        <TaskItem key={taskItem.id} taskItem={taskItem} {...events} />
+      {tasksInOrder.map(taskItem => (
+        <TaskItem key={taskItem.id} taskItem={taskItem} {...events} onArchiveTask={OnArchiveTask} />
       ))}
     </div>
   );

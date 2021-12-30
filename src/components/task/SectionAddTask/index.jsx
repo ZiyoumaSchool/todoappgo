@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import { ApplicationContext } from '../../../pages/TaskHomePage'
-import 'bootstrap/dist/css/bootstrap.css';
+//import 'bootstrap/dist/css/bootstrap.css';
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask';
 import ButtonSubmit from '../../ButtonSubmit';
@@ -13,14 +13,14 @@ import TaskList from '../TaskList';
 import { Tasksource } from '../../../datas/Tasksource';
 
 
-export const ListOfTask = createContext();
+
 
 export default function SectionAddTask(Tasksource) {
 
   const {state, setState} = useContext(ApplicationContext);
   const [myvalue, setMyvalue] = useState('');
 
-  console.log("akiaka", state)
+  //console.log("akiaka", state)
 
   // const myvar = {
   //     items:Tasksource,
