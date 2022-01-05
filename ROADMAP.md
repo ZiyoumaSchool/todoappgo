@@ -27,6 +27,8 @@
 - [] Delete Task.
 
 
+**[1.2.0] - [2022-01-10]**
+ Expected delevery date of the first version that include the basic features
 
 
 

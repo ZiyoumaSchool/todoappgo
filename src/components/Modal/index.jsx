@@ -8,9 +8,14 @@ import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
 import { ApplicationContext } from '../../pages/TaskHomePage'
 
-  function DefaultComponent(){
+  const DefaultComponent =()=>{
+    // const {store, setStore} = useContext(ApplicationContext);
     return (
-      <input type="text" value="La Paz et la pasta"/>   
+      <form>
+      <input type="text" placeholder='La pasta plaza' readOnly={false}/>
+      {/* <input type="text" placeholder={store.titleTaskTab[0]} readOnly={false}/> */}
+      {/* <textarea></textarea> */}
+      </form>   
     )
   }
 
@@ -45,7 +50,8 @@ import { ApplicationContext } from '../../pages/TaskHomePage'
         >
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
-              {title}
+              {title}{' - '}
+              {store.titleTaskTab[0]}
             </Modal.Title>
           </Modal.Header>
           <Modal.Body>

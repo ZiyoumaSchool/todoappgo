@@ -47,10 +47,15 @@ const {store, setStore} = useContext(ApplicationContext);
       </label>
       <div className='taskitem-1' >
         <div className="title"> 
-            <p  onClick={() => store.showModal[1](true) }>
+            <p  onClick={() => {
+          store.showModal[1](true)
+          store.idTaskTab[1](id)
+          store.titleTaskTab[1](title)
+           }}>
             {/* <input type="text" className="form-control border border-primary rounded"
              value={title} readOnly={true} placeholder="Input title" /> */}
             {title}
+           
             </p>
         </div>
        </div>
