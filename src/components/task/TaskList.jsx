@@ -9,15 +9,16 @@ import TaskItem from './TaskItem';
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
-  const {state, setState} = useContext(ApplicationContext);
+  //const {state1, setState1} = useContext(ApplicationContext);
+  const {store, setStore} = useContext(ApplicationContext);
   // const [myvalue, setMyvalue] = useState('');
 
   function OnArchiveTask(id){
     
     console.log("Voici alors l id", id)
     //const {state, setState} = useContext(ApplicationContext);
-    console.log("La liste", state)
-    setState(state.filter(item=>item.id!==id))
+    console.log("La liste", store.stateList[0])
+    store.stateList[1](store.stateList[0].filter(item=>item.id!==id))
   }
 
   const events = {
@@ -80,7 +81,7 @@ TaskList.propTypes = {
       /** Title of the task */
       title: PropTypes.string.isRequired,
       /** Current state of the task */
-      state: PropTypes.string.isRequired,
+      // state: PropTypes.string.isRequired,
     }) ).isRequired,
     /** Event to change the task to pinned */
     onPinTask: PropTypes.func,

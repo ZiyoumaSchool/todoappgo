@@ -6,6 +6,7 @@ import TaskList from '../components/Task/TaskList';
 //import 'bootstrap/dist/css/bootstrap.css';
 //import { useState, useCallback } from 'react';
 import {createContext, useState} from 'react';
+import ModalComponent from '../components/Modal';
 
 export const ApplicationContext = createContext();
 
@@ -22,7 +23,15 @@ export default function TaskHomePage() {
 
     const myvar = Tasksource
 
-    const [state, setState] = useState(myvar);
+    const [state1, setState1] = useState(myvar);
+    const [show, setShow] = useState(false);
+
+    const store = {
+        stateList: [state1, setState1],
+        showModal: [show, setShow],
+        
+      }
+    // const [oneStore, setOneStore] = useState(store)
 
     // console.log("MyValue", state)
 
@@ -55,7 +64,8 @@ export default function TaskHomePage() {
 
     return (
      <>
-        <ApplicationContext.Provider value={{state, setState}}>
+        {/* <ApplicationContext.Provider value={{state1, setState1}}> */}
+        <ApplicationContext.Provider value={{store}}>
         <SectionAddTask 
             //value = {value} 
             // handleAdd = {handleAdd}
@@ -63,7 +73,9 @@ export default function TaskHomePage() {
             //TaskSource = {initialList}
        />
         {/* <SectionAddTask /> */}
-        <TaskList tasks={state}/>
+
+        <ModalComponent title="Edit Task" show={store.showModal[0]} />
+        <TaskList tasks={state1}/>
         </ApplicationContext.Provider>
     </>
         

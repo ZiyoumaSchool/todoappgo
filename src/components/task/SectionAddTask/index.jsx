@@ -17,8 +17,11 @@ import { Tasksource } from '../../../datas/Tasksource';
 
 export default function SectionAddTask(Tasksource) {
 
-  const {state, setState} = useContext(ApplicationContext);
+  // const {state1, setState1} = useContext(ApplicationContext);
+  const {store, setStore} = useContext(ApplicationContext);
   const [myvalue, setMyvalue] = useState('');
+
+  
 
   //console.log("akiaka", state)
 
@@ -50,17 +53,19 @@ export default function SectionAddTask(Tasksource) {
   function handleAdd(e) {
     e.preventDefault();
     console.log("patatras", myvalue);
-    console.log("Congré chaud", state)
+    console.log("Le big store YAYA", store.stateList[0])
+    //console.log("Congré chaud", store.state1[state1])
    
-    console.log("New List", state)
-    setState([...state, { id: Date.now(),
+    // console.log("New List", store.state1)
+    store.stateList [1]([...store.stateList[0], { id: Date.now(),
       title:myvalue,       
       dateEnd: "2021-12-31",
       watched: false,
       state: 'TASK_INBOX'
     }])
-    console.log('state--->', state)
-    setMyvalue('');   
+    console.log('state--->', store.stateList[0])
+    setMyvalue('');  
+    
   }    
 
   return (

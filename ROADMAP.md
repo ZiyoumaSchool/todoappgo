@@ -9,11 +9,11 @@
 - [] Add the section AddNewTask that includes the input text and the submit Button - Ok
 - [] Create the page that includes the above sections with the tasklist section - OK
 - [] Add a new task to the taskList by pressing "ENTER" or clicking on "Add" button -  OK
-- [] Empty the input text field after adding a new task -  Almost OK
-- [] Show the TaskList updated -  Almost OK
+- [] Empty the input text field after adding a new task - OK
+- [] Show the TaskList updated - OK
 
-- [] Select Task on the List
-- [] Edit Task.
+- [] Select Task on the List that show a modal component.
+- [] Edit Task in the modal component shown above
 - [] Delete Task.
 
 **[1.0.0] - [2021-12-17]**
