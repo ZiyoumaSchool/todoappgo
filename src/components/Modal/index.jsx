@@ -51,6 +51,7 @@ import { ApplicationContext } from '../../pages/TaskHomePage'
           <Modal.Header closeButton>
             <Modal.Title id="example-modal-sizes-title-lg">
               {title}{' - '}
+              {store.idTaskTab[0]}{' - '}
               {store.titleTaskTab[0]}
             </Modal.Title>
           </Modal.Header>
