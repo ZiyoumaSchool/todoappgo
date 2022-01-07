@@ -1,15 +1,15 @@
 import React, {useContext} from 'react';
-import SectionAddTask from '../components/Task/SectionAddTask';
-import SectionEditTask from '../components/Task/SectionEditTask'
-import { Tasksource } from '../datas/Tasksource';
+import SectionAddTask from '../../components/Task/SectionAddTask';
+import SectionEditTask from '../../components/Task/SectionEditTask'
+import { Tasksource } from '../../datas/Tasksource';
 import { v4 as uuidv4 } from 'uuid';
-import TaskList from '../components/Task/TaskList';
+import TaskList from '../../components/Task/TaskList';
 //import 'bootstrap/dist/css/bootstrap.css';
 //import { useState, useCallback } from 'react';
 import {createContext, useState} from 'react';
-import ModalComponent from '../components/Modal';
-import InputTextNewTask from '../components/Task/InputTextNewTask';
-import ButtonSubmit from '../components/ButtonSubmit';
+import ModalComponent from '../../components/Modal';
+import InputTextNewTask from '../../components/Task/InputTextNewTask';
+import ButtonSubmit from '../../components/ButtonSubmit';
 
 export const ApplicationContext = createContext();
 

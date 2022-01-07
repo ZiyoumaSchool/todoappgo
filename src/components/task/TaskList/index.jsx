@@ -1,10 +1,10 @@
 import React, {useContext, useState}  from 'react';
 import PropTypes from 'prop-types';
-import {Tasksource} from '../../datas/Tasksource';
-import "../../index.css"
-import { ApplicationContext } from '../../pages/TaskHomePage';
+import {Tasksource} from '../../../datas/Tasksource';
+import "../../../index.css"
+import { ApplicationContext } from '../../../pages/TaskHomePage';
 
-import TaskItem from './TaskItem';
+import TaskItem from '../TaskItem';
 
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
