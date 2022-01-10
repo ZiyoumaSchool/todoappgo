@@ -13,27 +13,29 @@
 .add-task-1 {
     color : rgb(7, 54, 30);
     text-align:right;
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 50px;
     justify-content: flex-start;
     flex-direction: row;
     align-items: center;
     position: relative;
     display: inline-block;
-    width: 80%;
+    width: 90%;
     height: 50px;
 }
 .add-task-2 {
     color : rgb(7, 54, 30);
     text-align: left;
-    padding: 32px;
+    padding-left: 1%;
+    padding-right: 1%;
     justify-content: flex-end;
     flex-direction: row;
     align-items: center;
     position: relative;
     display: inline-block;
-    width: 20%;
-    height: 150px;
+    width: 60%;
+    height: 50px;
 }
 
 .add-task-3 {

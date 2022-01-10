@@ -11,8 +11,18 @@ import TaskHomePage from '../../../pages/TaskHomePage';
 //import { Tasksource } from '../../../datas/Tasksource';
 import TaskList from '../TaskList';
 import { Tasksource } from '../../../datas/Tasksource';
+// import ReduxFormWrapper from '@wfp/ui';
+// import { SingleDatePickerInput } from '../../DatePicker';
+// import { SingleDatePicker, DateRangePicker } from 'react-dates';
+import DayPickerInputText from '../../DayPickerInput';
 
 
+
+
+export function format(){
+  var options = {year:'numeric' , month:'long' , day:"numeric" };
+  return new Date().toLocaleDateString([], options);
+}
 
 
 export default function SectionAddTask(Tasksource) {
@@ -20,8 +30,9 @@ export default function SectionAddTask(Tasksource) {
   // const {state1, setState1} = useContext(ApplicationContext);
   const {store, setStore} = useContext(ApplicationContext);
   const [myvalue, setMyvalue] = useState('');
+  const [day, setDay] = useState(Date.now());
 
-  
+  console.log("Les dates", Date());
 
   //console.log("akiaka", state)
 
@@ -54,13 +65,14 @@ export default function SectionAddTask(Tasksource) {
     e.preventDefault();
     console.log("patatras", myvalue);
     console.log("Le big store YAYA", store.stateList[0])
-    //console.log("Congré chaud", store.state1[state1])
-   
-    // console.log("New List", store.state1)
-    store.stateList [1]([...store.stateList[0], { id: Date.now(),
+    //const date = "2000-01-31T11:59:00-05:00";
+    //const today = new Date();
+
+    // const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
+
+    store.stateList[1]([...store.stateList[0], { id: Date.now(),
       title:myvalue,       
-      dateEnd: "2021-12-31",
-      watched: false,
+      dateEnd: Date(),
       state: 'TASK_INBOX'
     }])
     console.log('state--->', store.stateList[0])
@@ -77,12 +89,14 @@ export default function SectionAddTask(Tasksource) {
                 myvalue={myvalue} 
                 handleChange={handleChange}
              />
+             <DayPickerInputText />
 
             <ButtonSubmit 
                 // disable={value===""?"true":"false"}
                 disable={!myvalue} 
                 onClick={handleAdd}
-             />                        
+             /> 
+                                    
           
       </div>
     </div>  

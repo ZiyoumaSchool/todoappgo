@@ -10,7 +10,10 @@ import ModalComponent from '../../Modal';
 import { ApplicationContext } from '../../../pages/TaskHomePage'
 
 
-
+export function format(theDate){
+  var options = {year:'numeric' , month:'long' , day:"numeric" };
+  return new theDate.toLocaleDateString([], options);
+}
 
 
 export default function TaskItem({ taskItem: {  id, title, dateBegin, dateEnd, description, state },
@@ -27,7 +30,8 @@ export default function TaskItem({ taskItem: {  id, title, dateBegin, dateEnd, d
   //  }  
 // let [show, setShow] = useState(false)
 const {store, setStore} = useContext(ApplicationContext);
-                                                                                             
+
+// const date = dateEnd.getFullYear() + '-' + (dateEnd.getMonth() + 1) + '-' + dateEnd.getDate();
  
   return (
     <div className={`list-item ${state}`}>
@@ -97,6 +101,7 @@ TaskItem.propTypes = {
 TaskItem.defaultProps = {
   // loading: true,
   title : "Peace in Africa",
-  onSelect : false
+  onSelect : false,
+  dateEnd : Date.now(),
   
  };

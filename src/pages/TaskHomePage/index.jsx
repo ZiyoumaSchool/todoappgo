@@ -4,12 +4,9 @@ import SectionEditTask from '../../components/Task/SectionEditTask'
 import { Tasksource } from '../../datas/Tasksource';
 import { v4 as uuidv4 } from 'uuid';
 import TaskList from '../../components/Task/TaskList';
-//import 'bootstrap/dist/css/bootstrap.css';
-//import { useState, useCallback } from 'react';
 import {createContext, useState} from 'react';
 import ModalComponent from '../../components/Modal';
-import InputTextNewTask from '../../components/Task/InputTextNewTask';
-import ButtonSubmit from '../../components/ButtonSubmit';
+
 
 export const ApplicationContext = createContext();
 
@@ -19,14 +16,7 @@ export const ApplicationContext = createContext();
 
 export default function TaskHomePage() {
 
-    // const myvar = {
-    //     items:Tasksource,
-    //     currentItem:{
-    //     title:'',
-    //     id: Date.now()
-    //   }
-    // }
-    
+ 
 
     const myvar = Tasksource
 
@@ -42,9 +32,7 @@ export default function TaskHomePage() {
         titleTaskTab: [titleTask, setTitleTask]
         
       }
-    // const [oneStore, setOneStore] = useState(store)
-
-    // console.log("MyValue", state)
+    
     const initialList = Tasksource;
     //const initialList = TaskList;
     const [list, setList] = useState(initialList);

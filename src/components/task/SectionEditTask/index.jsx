@@ -37,9 +37,8 @@ export default function SectionAddTask(Tasksource) {
       editTab[i]={
          id:  editTab[i].id, 
         title: myvalue, 
-        dateEnd:  editTab[i].dateEnd,
-         watched:  editTab[i].watched, 
-         state:  editTab[i].state
+        dateEnd:  editTab[i].dateEnd, 
+        state:  editTab[i].state
       }
     }
    
