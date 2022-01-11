@@ -14,7 +14,10 @@ import { Tasksource } from '../../../datas/Tasksource';
 // import ReduxFormWrapper from '@wfp/ui';
 // import { SingleDatePickerInput } from '../../DatePicker';
 // import { SingleDatePicker, DateRangePicker } from 'react-dates';
-import DayPickerInputText from '../../DayPickerInput';
+// import DayPickerInput from '../../DayPickerInput';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import '../../DayPickerInput/DayPickerInput.css';
+import 'react-day-picker/lib/style.css';
 
 
 
@@ -30,7 +33,7 @@ export default function SectionAddTask(Tasksource) {
   // const {state1, setState1} = useContext(ApplicationContext);
   const {store, setStore} = useContext(ApplicationContext);
   const [myvalue, setMyvalue] = useState('');
-  const [day, setDay] = useState(Date.now());
+  const [day, setDay] = useState({selectedDay:''});
 
   console.log("Les dates", Date());
 
@@ -55,6 +58,17 @@ export default function SectionAddTask(Tasksource) {
   const val = {title:'', id:Date.now()}
   // const [currentItem, setCurrentItem] = useState(val)
 
+  // function handleDayChange(e) {
+  //   setDay(e.target.value);
+  //   console.log("Peaceful", day);
+  // }
+  function handleDayChange(d) {
+    setDay({ selectedDay: d });
+    console.log("Peaceful45", day.selectedDay.toString());
+  }
+
+
+
   function handleChange (event){
           setMyvalue(event.target.value);
           //console.log("p35", myvalue);
@@ -72,14 +86,15 @@ export default function SectionAddTask(Tasksource) {
 
     store.stateList[1]([...store.stateList[0], { id: Date.now(),
       title:myvalue,       
-      dateEnd: Date(),
+      dateEnd: day.selectedDay.toString(),
       state: 'TASK_INBOX'
     }])
     console.log('state--->', store.stateList[0])
     setMyvalue('');  
     
-  }    
-
+  } 
+  const lapaz = day   
+  console.log("LaPAZ3545", lapaz.selectedDay.toString());
   return (
 <form>
     <div className="form-group  wrapper">
@@ -89,7 +104,12 @@ export default function SectionAddTask(Tasksource) {
                 myvalue={myvalue} 
                 handleChange={handleChange}
              />
-             <DayPickerInputText />
+             <div className='daypicker1'>
+                <DayPickerInput 
+                    day={day}
+                    onDayChange = {handleDayChange}
+                />
+              </div>
 
             <ButtonSubmit 
                 // disable={value===""?"true":"false"}

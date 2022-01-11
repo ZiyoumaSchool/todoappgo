@@ -32,6 +32,7 @@ export default function TaskItem({ taskItem: {  id, title, dateBegin, dateEnd, d
 const {store, setStore} = useContext(ApplicationContext);
 
 // const date = dateEnd.getFullYear() + '-' + (dateEnd.getMonth() + 1) + '-' + dateEnd.getDate();
+//let Dt= Date({dateEnd})
  
   return (
     <div className={`list-item ${state}`}>
@@ -89,6 +90,7 @@ TaskItem.propTypes = {
     id: PropTypes.number.isRequired,
     /** Title of the task */
     title: PropTypes.string.isRequired,
+    // dateEnd: PropTypes.string.isRequired,
     /** Current state of the task */
     // state: PropTypes.string.isRequired,
   }),
@@ -100,8 +102,8 @@ TaskItem.propTypes = {
 
 TaskItem.defaultProps = {
   // loading: true,
-  title : "Peace in Africa",
-  onSelect : false,
-  dateEnd : Date.now(),
+  // title : "Peace in Africa",
+  // onSelect : false,
+  // dateEnd : Date.now(),
   
  };
