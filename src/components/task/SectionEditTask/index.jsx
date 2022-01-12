@@ -46,6 +46,7 @@ export default function SectionAddTask(Tasksource) {
     }
     store.stateList[1](editTab)
     store.showModal[1](false)
+  }
     // const numer = store.idTaskTab[0]-1 ;
     // console.log("la vraie canne", store.idTaskTab[0]);
     // editTab[numer].title = myvalue;
@@ -61,7 +62,7 @@ export default function SectionAddTask(Tasksource) {
     // console.log('stateLit New after Edit', store.stateList[0])
     // setMyvalue('');  
     
-  }    
+  
 
   return (
 <form>

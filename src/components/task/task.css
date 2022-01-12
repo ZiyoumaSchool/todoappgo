@@ -1,5 +1,18 @@
 /* TasKAdd CSS */
 
+.title-wrapper{
+    background-color: lightblue;
+}
+
+.title-wrapper-archived{
+    margin-top: 30px;
+    background-color: grey;
+}
+.taskitem-archived {
+    background-color: rgb(6, 41, 44);
+}
+
+
 .wrapper {
     font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
     border-bottom: 1px solid rgba(240, 79, 4, 0.953);

@@ -3,10 +3,7 @@ import ReactDOM from 'react-dom';
 import '../task.css';
 import PropTypes from 'prop-types';
 import "../../../index.css";
-import {createContext, useState, useContext} from 'react';
-import { Button } from 'react-bootstrap';
-import { Modal } from 'react-bootstrap';
-import ModalComponent from '../../Modal';
+import { useContext} from 'react';
 import { ApplicationContext } from '../../../pages/TaskHomePage'
 
 

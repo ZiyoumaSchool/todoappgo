@@ -898,8 +898,9 @@
  .list-item.TASK_PINNED .icon-star {
    color: #2cc5d2;
  }
- .list-item.TASK_ARCHIVED input[type="text"] {
-   color: #aaa;
+ .list-item.TASK_ARCHIVED  {
+   color: rgb(0, 0, 0);
+   background-color: #d0d6d8;
  }
  .list-item:hover {
    background-image: linear-gradient(to bottom, #e5f9f7 0%, #f0fffd 100%);

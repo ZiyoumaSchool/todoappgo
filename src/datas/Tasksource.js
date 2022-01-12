@@ -3,31 +3,31 @@ export const Tasksource = [
       id: 1,
       title: 'The Godfather25',
       dateEnd: 'Tue Jan 14 2022 12:06:37 GMT+0100',
-      state: 'TASK_INBOX'
+      state: 'TASK_PINNED'
     },
     {
       id: 2,
       title: 'Inception',
       dateEnd: 'Tue Jan 16 2022 12:06:37 GMT+0100',
-      state: 'TASK_INBOX'
+      state: 'TASK_ARCHIVED'
     },
     {
       id: 3,
       title: 'Fight Club',
       dateEnd: 'Tue Jan 11 2022 12:06:37 GMT+0100',
-      state: 'TASK_INBOX'
+      state: 'TASK_ARCHIVED'
     },
     {
       id: 4,
       title: 'Pulp Fiction',
       dateEnd:'Tue Jan 15 2022 12:06:37 GMT+0100',
-      state: 'TASK_INBOX'
+      state: 'TASK_ARCHIVED'
     },
     {
       id: 5,
       title: 'Forrest Gump',
       dateEnd: 'Tue Jan 18 2022 12:06:37 GMT+0100',
-      state: 'TASK_INBOX'
+      state: 'TASK_PINNED'
     },
     {
       id: 6,
@@ -57,6 +57,6 @@ export const Tasksource = [
       id: 10,
       title: 'The Departed',
       dateEnd: 'Tue Jan 18 2022 12:06:37 GMT+0100',
-      state: 'TASK_INBOX'
+      state: 'TASK_ARCHIVED'
     },
   ];

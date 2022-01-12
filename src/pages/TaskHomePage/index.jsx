@@ -22,14 +22,16 @@ export default function TaskHomePage() {
 
     const [state1, setState1] = useState(myvar);
     const [show, setShow] = useState(false);
-    const [idTask, setIdTask] = useState(0)
-    const [titleTask, setTitleTask] = useState("")
+    const [idTask, setIdTask] = useState(0);
+    const [titleTask, setTitleTask] = useState("");
+    const [stateTask, setStateTask] = useState("")
 
     const store = {
         stateList: [state1, setState1],
         showModal: [show, setShow],
         idTaskTab: [idTask, setIdTask],
-        titleTaskTab: [titleTask, setTitleTask]
+        titleTaskTab: [titleTask, setTitleTask],
+        stateTaskTab: [stateTask, setStateTask]
         
       }
     
@@ -57,7 +59,7 @@ export default function TaskHomePage() {
         {/* <SectionAddTask /> */}
 
         <ModalComponent title="Edit Task" show={store.showModal[0]} component={TaskEditComponent()} />
-        <TaskList tasks={state1}/>
+        <TaskList tasks={store.stateList[0]}/>
         </ApplicationContext.Provider>
     </>
         
