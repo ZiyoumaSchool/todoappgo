@@ -11,6 +11,8 @@ import TaskHomePage from '../../../pages/TaskHomePage';
 //import { Tasksource } from '../../../datas/Tasksource';
 import TaskList from '../TaskList';
 import { Tasksource } from '../../../datas/Tasksource';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -21,6 +23,8 @@ export default function SectionAddTask(Tasksource) {
   const {store, setStore} = useContext(ApplicationContext);
   const v = store.titleTaskTab[0]
   const [myvalue, setMyvalue] = useState(v);
+
+  const notify = (msg) => toast(msg);
 
   function handleChangeEdit (event){
           setMyvalue(event.target.value);
@@ -41,9 +45,8 @@ export default function SectionAddTask(Tasksource) {
         state:  editTab[i].state
       }
     }
-   
-
     }
+    notify("Tache : "+myvalue+" modifiée avec succès");
     store.stateList[1](editTab)
     store.showModal[1](false)
   }

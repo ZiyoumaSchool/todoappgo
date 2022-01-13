@@ -6,12 +6,16 @@ import { ApplicationContext } from '../../../pages/TaskHomePage';
 
 import TaskItem from '../TaskItem';
 import '../task.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
   //const {state1, setState1} = useContext(ApplicationContext);
   const {store, setStore} = useContext(ApplicationContext);
+
+  const notify = (msg) => toast(msg);
   // const [myvalue, setMyvalue] = useState('');
 
 //////////////////////  OnArchiveTask //////////////////////////////////////
@@ -21,26 +25,33 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     // e.preventDefault();
     
     let editTab = store.stateList[0];
-    console.log("BLALALALA", id1)
+    console.log("BLALALALA", id1);
+    let desc = "";
     for(let i=0;i<editTab.length;i++){
     // if(editTab[i].id===store.idTaskTab[0]){
       if(editTab[i].id===id1 && editTab[i].state !=="TASK_ARCHIVED" ){
-      console.log("Archivage ", editTab[i])
+      console.log("Archivage ", editTab[i]);
+      desc = editTab[i].title;
       editTab[i]={
         id:  editTab[i].id, 
         title: editTab[i].title, 
         dateEnd:  editTab[i].dateEnd, 
         state:  "TASK_ARCHIVED"
       }
+      notify("Tache : "+desc+" archivée avec succès");
+
     } else if (editTab[i].id===id1 && editTab[i].state ==="TASK_ARCHIVED" ) {
+      desc = editTab[i].title;
       editTab[i]={
        id:  editTab[i].id, 
        title: editTab[i].title, 
        dateEnd:  editTab[i].dateEnd, 
        state:  "TASK_INBOX"
      }
+     notify("Tache : "+desc+" restaurée avec succès");
     }
   }
+    
     store.stateList[1](editTab)
     store.stateList[1](store.stateList[0].filter(item=>item.state!==""))
     console.log("Le STORY ", store.stateList[0])
@@ -57,10 +68,12 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     // e.preventDefault();
     
     let editTab = store.stateList[0];
+    let desc = "";
     console.log("BLALALALA", id1)
     for(let i=0;i<editTab.length;i++){
     // if(editTab[i].id===store.idTaskTab[0]){
       if(editTab[i].id===id1 && editTab[i].state !=="TASK_PINNED" ){
+        desc = editTab[i].title
       console.log("Archivage ", editTab[i])
       editTab[i]={
         id:  editTab[i].id, 
@@ -69,7 +82,9 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         state:  "TASK_PINNED"
       }
     } 
+    
   }
+  notify("Tache : "+desc+" épinglée avec succès");
   store.stateList[1](editTab)
     store.stateList[1](store.stateList[0].filter(item=>item.state!==""))
     console.log("Le STORY ", store.stateList[0])

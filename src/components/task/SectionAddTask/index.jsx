@@ -1,23 +1,15 @@
 import React, {useContext} from 'react';
 import { ApplicationContext } from '../../../pages/TaskHomePage'
-//import 'bootstrap/dist/css/bootstrap.css';
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask';
 import ButtonSubmit from '../../ButtonSubmit';
 import { useState } from 'react';
-import { createContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import TaskHomePage from '../../../pages/TaskHomePage';
-//import { Tasksource } from '../../../datas/Tasksource';
-import TaskList from '../TaskList';
-import { Tasksource } from '../../../datas/Tasksource';
-// import ReduxFormWrapper from '@wfp/ui';
-// import { SingleDatePickerInput } from '../../DatePicker';
-// import { SingleDatePicker, DateRangePicker } from 'react-dates';
-// import DayPickerInput from '../../DayPickerInput';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import '../../DayPickerInput/DayPickerInput.css';
 import 'react-day-picker/lib/style.css';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 
@@ -30,38 +22,17 @@ export function format(){
 
 export default function SectionAddTask(Tasksource) {
 
-  // const {state1, setState1} = useContext(ApplicationContext);
   const {store, setStore} = useContext(ApplicationContext);
   const [myvalue, setMyvalue] = useState('');
   const [day, setDay] = useState({selectedDay:''});
 
+  const notify = (msg) => toast(msg);
+
   console.log("Les dates", Date());
 
-  //console.log("akiaka", state)
-
-  // const myvar = {
-  //     items:Tasksource,
-  //     currentItem:{
-  //     title:'ufffyfyf',
-  //     id: Date.now()
-  //   }
-  // }
-
-  //var [state, setState] = useState(myvar)
-
-  // console.log("Items Myvar", myvar.items)
-
-  //const items = Tasksource
-  
-  //console.log("Items State1", state.items)
 
   const val = {title:'', id:Date.now()}
-  // const [currentItem, setCurrentItem] = useState(val)
-
-  // function handleDayChange(e) {
-  //   setDay(e.target.value);
-  //   console.log("Peaceful", day);
-  // }
+  
   function handleDayChange(d) {
     setDay({ selectedDay: d });
     console.log("Peaceful45", day.selectedDay.toString());
@@ -79,16 +50,18 @@ export default function SectionAddTask(Tasksource) {
     e.preventDefault();
     console.log("patatras", myvalue);
     console.log("Le big store YAYA", store.stateList[0])
+    
     //const date = "2000-01-31T11:59:00-05:00";
     //const today = new Date();
 
     // const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-
+    notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
     store.stateList[1]([...store.stateList[0], { id: Date.now(),
       title:myvalue,       
       dateEnd: day.selectedDay.toString(),
       state: 'TASK_INBOX'
     }])
+    
     console.log('state--->', store.stateList[0])
     setMyvalue('');  
     
@@ -99,7 +72,7 @@ export default function SectionAddTask(Tasksource) {
 <form>
     <div className="form-group  wrapper">
       <div className='add-task-1'> 
-            
+            <ToastContainer />
             <InputTextNewTask 
                 myvalue={myvalue} 
                 handleChange={handleChange}
