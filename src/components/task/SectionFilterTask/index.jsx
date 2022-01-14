@@ -20,10 +20,10 @@ export function format(){
 }
 
 
-export default function SectionAddTask(Tasksource) {
+export default function SectionFilterTask(Tasksource, onClickFilter) {
 
   const {store, setStore} = useContext(ApplicationContext);
-  const [myvalue, setMyvalue] = useState('');
+  // const [myvalue, setMyvalue] = useState('');
   const [day, setDay] = useState({selectedDay:''});
 
   const notify = (msg) => toast(msg);
@@ -44,19 +44,28 @@ export default function SectionAddTask(Tasksource) {
             <ButtonSubmit 
                 // disable={value===""?"true":"false"}
                 disable={""} 
-                onClick={""}
+                onClick={(e)=>{
+                  e.preventDefault();
+                  store.buttonFilterTab[1]("INBOX")
+                }}
                 label="INBOX"
             />  
              <ButtonSubmit 
                 // disable={value===""?"true":"false"}
                 disable={""} 
-                onClick={""}
+                onClick={(e)=>{
+                  e.preventDefault();
+                  store.buttonFilterTab[1]("ARCHIVED")
+                }}
                 label="ARCHIVED"
              />  
              <ButtonSubmit 
                 // disable={value===""?"true":"false"}
                 disable={""} 
-                onClick={""}
+                onClick={(e)=>{
+                  e.preventDefault();
+                  store.buttonFilterTab[1]("ALL")
+                }}
                 label="ALL"
              />
       </div>

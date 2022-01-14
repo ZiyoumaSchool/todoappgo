@@ -18,6 +18,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   const notify = (msg) => toast(msg);
   // const [myvalue, setMyvalue] = useState('');
 
+  console.log("Le POPO",store.buttonFilterTab[0] )
+
 //////////////////////  OnArchiveTask //////////////////////////////////////
 
   function OnArchiveTask(id1) {
@@ -143,8 +145,12 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     ...tasks.filter(t => t.state !== 'TASK_PINNED'),
   ];
   return (
-  <>
-    <div className="title-wrapper">
+  <div>
+
+ {  
+
+  (store.buttonFilterTab[0]==="ALL" || store.buttonFilterTab[0]==="INBOX")? 
+    (<div className="title-wrapper">
       <nav>
             <h6 className="title-page">
                 <span className = "title-wrapper">Tasks Inbox</span>
@@ -155,8 +161,15 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         <TaskItem key={taskItem.id} taskItem={taskItem} {...events} onPinTask={onPinTask} onArchiveTask={OnArchiveTask} />
         ):null
       ))}
-    </div>
-    <div className="title-wrapper-archived">
+    </div>)
+    :<div><p></p></div>
+
+  }
+
+  {
+
+    (store.buttonFilterTab[0]==="ALL" || store.buttonFilterTab[0]==="ARCHIVED")? 
+    (<div className="title-wrapper-archived">
       <nav>
             <h6 className="title-page">
                 <span>Tasks Archived</span>
@@ -166,12 +179,14 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       {tasksInOrder.map(taskItem => (        
         taskItem.state === "TASK_ARCHIVED" ?(              
         <TaskItem key={taskItem.id} taskItem={taskItem} {...events} onArchiveTask={OnArchiveTask} />        
-        ):null   
+        ):null  
         
       ))}
       
+    </div>)  : (<div><p></p></div>)
+
+}
     </div>
-    </>
   );
 };
 

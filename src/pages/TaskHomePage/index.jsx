@@ -26,13 +26,17 @@ export default function TaskHomePage() {
     const [idTask, setIdTask] = useState(0);
     const [titleTask, setTitleTask] = useState("");
     const [stateTask, setStateTask] = useState("")
+    const [buttonFilter, setButtonFilter] = useState("ALL")
+    const [labelFilter, setLabelFilter] = useState("")
 
     const store = {
         stateList: [state1, setState1],
         showModal: [show, setShow],
         idTaskTab: [idTask, setIdTask],
         titleTaskTab: [titleTask, setTitleTask],
-        stateTaskTab: [stateTask, setStateTask]
+        stateTaskTab: [stateTask, setStateTask],
+        buttonFilterTab:[buttonFilter, setButtonFilter],
+        labelFilterTab:[labelFilter, setLabelFilter]
         
       }
     
@@ -45,6 +49,23 @@ export default function TaskHomePage() {
                 <SectionEditTask />                
               )
       }
+
+    // function onClickFilter(labelClik){
+    //   if(labelClik==="ALL"){
+    //     store.buttonFilterTab[1](labelClik)
+    //     store.labelFilterTab[1](labelClik)
+    //   }
+    //   if(labelClik==="INBOX"){
+    //     store.buttonFilterTab[1](labelClik)
+    //     store.labelFilterTab[1](labelClik)
+    //   }
+    //   if(labelClik==="ARCHIVED"){
+    //     store.buttonFilterTab[1](labelClik)
+    //     store.labelFilterTab[1](labelClik)
+    //   }
+
+
+    // }
 
 
     return (
