@@ -4,11 +4,11 @@ import './index.css';
 // import App from './App';
 // import InputTextNewTask from './components/Task/InputTextNewTask'
 // import ButtonSubmit from './components/ButtonSubmit';
-import SectionAddTask from './components/Task/SectionAddTask';
+// import SectionAddTask from './components/Task/SectionAddTask';
 import reportWebVitals from './reportWebVitals';
 import HeaderComponent from './components/Header/index'
 import 'bootstrap/dist/css/bootstrap.css';
-import TaskList from './components/Task/TaskList';
+// import TaskList from './components/Task/TaskList';
 import TaskHomePage from './pages/TaskHomePage';
 
 
