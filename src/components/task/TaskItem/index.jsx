@@ -53,6 +53,7 @@ const {store, setStore} = useContext(ApplicationContext);
           store.showModal[1](true)
           store.idTaskTab[1](id)
           store.titleTaskTab[1](title)
+          store.dateTaskTab[1](dateEnd)
            }}>
             {/* <input type="text" className="form-control border border-primary rounded"
              value={title} readOnly={true} placeholder="Input title" /> */}

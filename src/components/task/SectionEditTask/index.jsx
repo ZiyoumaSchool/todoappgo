@@ -5,14 +5,11 @@ import '../task.css';
 import InputTextNewTask from '../InputTextNewTask';
 import ButtonSubmit from '../../ButtonSubmit';
 import { useState } from 'react';
-import { createContext } from 'react';
 import { v4 as uuidv4 } from 'uuid';
-import TaskHomePage from '../../../pages/TaskHomePage';
-//import { Tasksource } from '../../../datas/Tasksource';
-import TaskList from '../TaskList';
-import { Tasksource } from '../../../datas/Tasksource';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import DayPickerInput from 'react-day-picker/DayPickerInput';
+import '../../DayPickerInput/DayPickerInput.css';
 
 
 
@@ -22,9 +19,22 @@ export default function SectionAddTask(Tasksource) {
   // const {state1, setState1} = useContext(ApplicationContext);
   const {store, setStore} = useContext(ApplicationContext);
   const v = store.titleTaskTab[0]
+  const d = store.dateTaskTab[0]
+  const birthday = new Date(d);
+  const year = birthday.getYear()
+  const month = birthday.getMonth()
+  const theday = birthday.getDay()
+  const laDate = year+"-"+month+"-"+theday
+  console.log("C est ici la date", laDate)
   const [myvalue, setMyvalue] = useState(v);
+  const [day, setDay] = useState({selectedDay:d});
 
   const notify = (msg) => toast(msg);
+
+  function handleDayChange(d) {
+    setDay({ selectedDay: d });
+    console.log("Peaceful Journey", day.selectedDay.toString());
+  }
 
   function handleChangeEdit (event){
           setMyvalue(event.target.value);
@@ -41,7 +51,8 @@ export default function SectionAddTask(Tasksource) {
       editTab[i]={
          id:  editTab[i].id, 
         title: myvalue, 
-        dateEnd:  editTab[i].dateEnd, 
+        // dateEnd:  editTab[i].dateEnd,
+        dateEnd:  day.selectedDay.toString(), 
         state:  editTab[i].state
       }
     }
@@ -76,6 +87,13 @@ export default function SectionAddTask(Tasksource) {
                 myvalue={myvalue} 
                 handleChange={handleChangeEdit}
              />
+
+              <div className='daypicker1'>
+                <DayPickerInput 
+                    day={day}
+                    onDayChange = {handleDayChange}
+                />
+              </div>
 
             <ButtonSubmit 
                 // disable={value===""?"true":"false"}

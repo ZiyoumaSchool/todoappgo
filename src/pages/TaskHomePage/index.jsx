@@ -25,6 +25,7 @@ export default function TaskHomePage() {
     const [show, setShow] = useState(false);
     const [idTask, setIdTask] = useState(0);
     const [titleTask, setTitleTask] = useState("");
+    const [dateTask, setDateTask] = useState("");
     const [stateTask, setStateTask] = useState("")
     const [buttonFilter, setButtonFilter] = useState("ALL")
     const [labelFilter, setLabelFilter] = useState("")
@@ -34,6 +35,7 @@ export default function TaskHomePage() {
         showModal: [show, setShow],
         idTaskTab: [idTask, setIdTask],
         titleTaskTab: [titleTask, setTitleTask],
+        dateTaskTab:[dateTask, setDateTask],
         stateTaskTab: [stateTask, setStateTask],
         buttonFilterTab:[buttonFilter, setButtonFilter],
         labelFilterTab:[labelFilter, setLabelFilter]
