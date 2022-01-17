@@ -26,11 +26,11 @@
 
 **[1.2.0] - [2022-01-12]**
  Expected delevery date of the first version that include the basic features
- - Add a task with date
- - Edit a task
- - Archive a task 
- - Restore a task
- - Filter the tasks
+ - [x] Add a task with date
+ - [x] Edit a task
+ - [x] Archive a task 
+ - [x] Restore a task
+ - [x] Filter the tasks
 
 
 
