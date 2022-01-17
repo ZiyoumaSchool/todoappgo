@@ -88,6 +88,8 @@ To have a full benefit from this tuto, some skills are recommanded susch as :
 
 ### Installation
 
+NB : To install all the dependencies after you create the project,  you need to run the command "yarn" this will install some of the package feature added on this project.
+
 1. Install your React project in the directory you want bi going to CLI and execute : 
     npx create-react-app todoappgo
 2. Install storybook inside the todoappgo folder previously created by using this command :
@@ -103,6 +105,8 @@ To have a full benefit from this tuto, some skills are recommanded susch as :
     Run `yarn start` to see your component's stories at `http://localhost:3000`
     
     If you have succeed well done !!! You can start focusing on the app
+    
+NB : To install all the dependencies you need to run the command "yarn" this will install some of the package feature added on this project.
     
 
 ## 🔎 What's inside?
@@ -151,7 +155,7 @@ A quick look at the top-level files and directories included with this template.
 <!-- USAGE EXAMPLES -->
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+Once you have set up the project and you have started the application by running "yarn add", you will see a page started at localhost:3000 in your default web browser. If so you will see the ToDoApp homepage. Then you can start adding and editing tasks.
 
 _For more examples, please refer to the [Documentation](https://example.com)_
 
@@ -161,6 +165,38 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 <!-- ROADMAP -->
 ## Roadmap
+
+**[x.x.x] - [ESTIMATED_DELIVERY_DATE]**
+
+**[CURRENT_TASKS]**
+- [x] Change the position of datas directory 
+- [x] Change name of some components 
+- [x] Add a button submit for adding a new task 
+- [x] Add the section AddNewTask that includes the input text and the submit Button 
+- [x] Create the page that includes the above sections with the tasklist section 
+- [x] Add a new task to the taskList by pressing "ENTER" or clicking on "Add" button 
+- [x] Empty the input text field after adding a new task 
+- [x] Show the TaskList updated 
+
+
+**[1.0.0] - [2021-12-17]**
+- [x] Add a new task to the taskList - Release Date [2021-12-28]
+- [x] Show the TaskList - Release Date [2021-12-28]
+
+**[1.1.0] - [2021-12-20]**
+
+- [x] Select Task on the List 
+- [x] Edit Task. 
+- [x] Delete Task. 
+
+
+**[1.2.0] - [2022-01-12]**
+ Expected delevery date of the first version that include the basic features
+ - [x] Add a task with date
+ - [x] Edit a task
+ - [x] Archive a task 
+ - [x] Restore a task
+ - [x] Filter the tasks
 
 
 
