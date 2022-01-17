@@ -114,6 +114,25 @@ A quick look at the top-level files and directories included with this template.
     ├── node_modules
     ├── public
     ├── src
+          ├── assets
+          ├── components
+                ├── ButtonSubmit
+                ├── DayPicker
+                ├── DayPickerInput
+                ├── Header
+                ├── Modal
+                ├── Task
+                      ├── InputTextNewTask
+                      ├── SectionAddTask
+                      ├── SectionEditTask
+                      ├── SectionFilterTask
+                      ├── TaskItem
+                      ├── TaskList
+          ├── datas
+          ├── pages
+                ├── TaskHomePage
+          ├── stories
+          ├── utils
     ├── .env
     ├── .gitignore
     ├── LICENSE
