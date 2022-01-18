@@ -1,12 +1,12 @@
 import React, {useContext} from 'react';
-import SectionAddTask from '../../components/Task/SectionAddTask/index';
-import SectionEditTask from '../../components/Task/SectionEditTask/index'
-import SectionFilterTask from '../../components/Task/SectionFilterTask/index'
+import SectionAddTask from '../../components/Task/SectionAddTask/index.jsx';
+import SectionEditTask from '../../components/Task/SectionEditTask/index.jsx'
+import SectionFilterTask from '../../components/Task/SectionFilterTask/index.jsx'
 import { Tasksource } from '../../datas/Tasksource';
 import { v4 as uuidv4 } from 'uuid';
-import TaskList from '../../components/Task/TaskList/index';
+import TaskList from '../../components/Task/TaskList/index.jsx';
 import {createContext, useState} from 'react';
-import ModalComponent from '../../components/Modal/index';
+import ModalComponent from '../../components/Modal/index.jsx';
 
 
 export const ApplicationContext = createContext();
