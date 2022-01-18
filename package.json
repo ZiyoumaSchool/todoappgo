@@ -25,7 +25,7 @@
     "react-bootstrap": "^2.1.0",
     "react-day-picker": "^7.4.10",
     "react-dom": "^17.0.2",
-    "react-scripts": "4.0.3",
+    "react-scripts": "^5.0.0",
     "react-toastify": "^8.1.0",
     "web-vitals": "^1.0.1"
   },
@@ -59,11 +59,11 @@
   },
   "devDependencies": {
     "@storybook/addon-actions": "^6.4.9",
-    "@storybook/addon-essentials": "^6.4.9",
+    "@storybook/addon-essentials": "^6.1.21",
     "@storybook/addon-links": "6.4.9",
     "@storybook/node-logger": "^6.4.9",
-    "@storybook/preset-create-react-app": "^3.2.0",
-    "@storybook/react": "^6.4.9",
+    "@storybook/preset-create-react-app": "^4.0.0",
+    "@storybook/react": "^6.1.21",
     "@xdn/cli": "^2.53.6",
     "@xdn/core": "^2.53.6",
     "@xdn/devtools": "^2.53.6",
