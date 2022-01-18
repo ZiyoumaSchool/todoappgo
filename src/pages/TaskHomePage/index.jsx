@@ -4,7 +4,7 @@ import SectionEditTask from '../../components/Task/SectionEditTask/index'
 import SectionFilterTask from '../../components/Task/SectionFilterTask/index'
 import { Tasksource } from '../../datas/Tasksource';
 import { v4 as uuidv4 } from 'uuid';
-import TaskList from '../../components/Task/TaskList';
+import TaskList from '../../components/Task/TaskList/index';
 import {createContext, useState} from 'react';
 import ModalComponent from '../../components/Modal/index';
 
