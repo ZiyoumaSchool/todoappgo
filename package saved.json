@@ -4,9 +4,9 @@
     "xdn:dev": "xdn dev",
     "xdn:build": "xdn build",
     "xdn:deploy": "xdn deploy",
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public"
