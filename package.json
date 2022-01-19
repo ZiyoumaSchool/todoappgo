@@ -70,6 +70,7 @@
     "@xdn/cli": "^2.53.6",
     "@xdn/core": "^2.53.6",
     "@xdn/devtools": "^2.53.6",
-    "@xdn/prefetch": "^2.53.6"
+    "@xdn/prefetch": "^2.53.6",
+    "case-sensitive-paths-webpack-plugin": "^2.4.0"
   }
 }
