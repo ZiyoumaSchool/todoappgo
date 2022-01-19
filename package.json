@@ -13,6 +13,9 @@
   },
   "name": "todoappgo",
   "version": "0.1.0",
+  "engines": {
+    "node": "14.15.3"
+  },
   "private": true,
   "dependencies": {
     "@layer0/core": "4.0.0",
