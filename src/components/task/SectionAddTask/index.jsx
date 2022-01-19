@@ -1,4 +1,5 @@
 import React, {useContext} from 'react';
+import ReactDOM from 'react-dom';
 import { ApplicationContext } from '../../../pages/TaskHomePage'
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask';
