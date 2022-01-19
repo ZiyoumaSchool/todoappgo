@@ -64,7 +64,6 @@
     "@storybook/node-logger": "^6.4.9",
     "@storybook/preset-create-react-app": "^3.2.0",
     "@storybook/react": "^6.4.9",
-    "@xdn/cli": "^2.53.6",
     "@xdn/core": "^2.53.6",
     "@xdn/devtools": "^2.53.6",
     "@xdn/prefetch": "^2.53.6"
