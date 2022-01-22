@@ -1,11 +1,11 @@
 import React, {useContext} from 'react';
 import ReactDOM from 'react-dom'; 
-import SectionAddTask from '../../components/Task/SectionAddTask';
-import SectionEditTask from '../../components/Task/SectionEditTask'
-import SectionFilterTask from '../../components/Task/SectionFilterTask'
+import SectionAddTask from '../../components/task/SectionAddTask'
+import SectionEditTask from '../../components/task/SectionEditTask'
+import SectionFilterTask from '../../components/task/SectionFilterTask'
 import { Tasksource } from '../../datas/Tasksource';
 import { v4 as uuidv4 } from 'uuid';
-import TaskList from '../../components/Task/TaskList';
+import TaskList from '../../components/task/TaskList'
 import {createContext, useState} from 'react';
 import ModalComponent from '../../components/Modal';
 
