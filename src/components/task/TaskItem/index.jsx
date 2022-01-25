@@ -9,7 +9,17 @@ import { ApplicationContext } from '../../../pages/TaskHomePage'
 
 export function format(theDate){
   var options = {year:'numeric' , month:'long' , day:"numeric" };
+  var userLanguage = window.navigator.userLanguage || window.navigator.language;
+          // const regexDate = /^\d{2}\/\d{2}\/\d{4}$/
+          console.log("p35", userLanguage);
+          // console.log("p351", regexDate);
+          let mdy = ['month', 'date', 'year'];
+          let hms = ['hour', 'minute', 'second'];
+          mdy = new Date().toLocaleDateString(userLanguage).split("/");
+          hms = new Date().toLocaleTimeString(userLanguage).split(/:| /);
+          console.log(mdy[0],hms);
   return new theDate.toLocaleDateString([], options);
+  
 }
 
 
@@ -18,19 +28,18 @@ export default function TaskItem({ taskItem: {  id, title, dateBegin, dateEnd, d
                                                  onPinTask,
                                                  onSelect 
                                                 }) {
-  
-  //  function InputEdit({title}){
-  //    console.log("parapa", {title})
-  //    return (
-  //  <input type="text"  value={title} disabled={false} />   
-  //     )
-  //  }  
-// let [show, setShow] = useState(false)
-const {store, setStore} = useContext(ApplicationContext);
 
-// const date = dateEnd.getFullYear() + '-' + (dateEnd.getMonth() + 1) + '-' + dateEnd.getDate();
-//let Dt= Date({dateEnd})
- 
+const {store, setStore} = useContext(ApplicationContext);
+var userLanguage = window.navigator.userLanguage || window.navigator.language;
+
+let  today 		= new Date(dateEnd);
+console.log("lalalala45", today.toLocaleDateString(userLanguage))
+	let  dd 		= String(today.getDate()).padStart(2, '0');
+	let  mm 		= String(today.getMonth() + 1).padStart(2, '0'); //janvier = 0
+	let  yyyy 		= today.getFullYear();
+
+	var ladate =  dd + '/' + mm + '/' + yyyy;
+
   return (
     <div className={`list-item ${state}`}>
       <label className="checkbox">
@@ -75,7 +84,7 @@ const {store, setStore} = useContext(ApplicationContext);
       </div>
       {/* <Button onClick={() => store.showModal[1](true)}>Large modal</Button> */}
 
-      <div className="taskitem-date">{dateEnd}</div>
+      <div className="taskitem-date">{today.toLocaleDateString(userLanguage)}</div>
       {/* <Example /> */}
     </div>
   );

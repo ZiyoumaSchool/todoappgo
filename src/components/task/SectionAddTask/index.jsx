@@ -43,7 +43,15 @@ export default function SectionAddTask(Tasksource) {
 
   function handleChange (event){
           setMyvalue(event.target.value);
-          //console.log("p35", myvalue);
+          var userLanguage = window.navigator.userLanguage || window.navigator.language;
+          // const regexDate = /^\d{2}\/\d{2}\/\d{4}$/
+          console.log("p35", userLanguage);
+          // console.log("p351", regexDate);
+          let mdy = ['month', 'date', 'year'];
+          let hms = ['hour', 'minute', 'second'];
+          mdy = new Date().toLocaleDateString(userLanguage).split("/");
+          hms = new Date().toLocaleTimeString(userLanguage).split(/:| /);
+          console.log(mdy[0],hms);
         };
   
 
