@@ -1,12 +1,10 @@
 import React, {useContext} from 'react';
-import ReactDOM from 'react-dom';
 import { ApplicationContext } from '../../../pages/TaskHomePage'
-//import 'bootstrap/dist/css/bootstrap.css';
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask';
 import ButtonSubmit from '../../ButtonSubmit';
 import { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
+// import { v4 as uuidv4 } from 'uuid';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
@@ -15,9 +13,9 @@ import '../../DayPickerInput/DayPickerInput.css';
 
 
 
+
 export default function SectionAddTask(Tasksource) {
 
-  // const {state1, setState1} = useContext(ApplicationContext);
   const {store, setStore} = useContext(ApplicationContext);
   const v = store.titleTaskTab[0]
   const d = store.dateTaskTab[0]
@@ -89,7 +87,7 @@ export default function SectionAddTask(Tasksource) {
                 handleChange={handleChangeEdit}
              />
 
-              <div className='daypicker1'>
+          <div className='daypicker1'>
                 <DayPickerInput 
                     day={day}
                     onDayChange = {handleDayChange}

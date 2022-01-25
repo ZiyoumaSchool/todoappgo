@@ -11,6 +11,8 @@ import '../../DayPickerInput/DayPickerInput.css';
 import 'react-day-picker/lib/style.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
 
@@ -42,7 +44,40 @@ export default function SectionFilterTask(Tasksource, onClickFilter) {
     <div className="form-group">
       <div className='filter-section'> 
             <ToastContainer />
-            <ButtonSubmit 
+            
+            <Tabs>
+                <TabList>
+                <Tab
+                    onClick={(e)=>{
+                      e.preventDefault();
+                      store.buttonFilterTab[1]("ALL")
+                    }}
+                  >ALL</Tab>
+                  <Tab 
+                     onClick={(e)=>{
+                      e.preventDefault();
+                      store.buttonFilterTab[1]("INBOX")
+                    }}
+                  >INBOX</Tab>
+                  <Tab
+                    onClick={(e)=>{
+                      e.preventDefault();
+                      store.buttonFilterTab[1]("ARCHIVED")
+                    }}
+                  
+                  >ARCHIVED</Tab>
+                  
+                </TabList>
+
+                {/* <TabPanel>
+                  <h2>Any content 1</h2>
+                </TabPanel>
+                <TabPanel>
+                  <h2>Any content 2</h2>
+                </TabPanel> */}
+              </Tabs>
+
+              {/* <ButtonSubmit 
                 // disable={value===""?"true":"false"}
                 disable={""} 
                 onClick={(e)=>{
@@ -51,6 +86,7 @@ export default function SectionFilterTask(Tasksource, onClickFilter) {
                 }}
                 label="INBOX"
             />  
+
              <ButtonSubmit 
                 // disable={value===""?"true":"false"}
                 disable={""} 
@@ -68,7 +104,7 @@ export default function SectionFilterTask(Tasksource, onClickFilter) {
                   store.buttonFilterTab[1]("ALL")
                 }}
                 label="ALL"
-             />
+             /> */}
       </div>
       
     </div>  
