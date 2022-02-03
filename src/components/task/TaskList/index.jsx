@@ -8,6 +8,8 @@ import TaskItem from '../TaskItem';
 import '../task.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
 
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
@@ -168,7 +170,10 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
  {  
 
   (store.buttonFilterTab[0]==="ALL" || store.buttonFilterTab[0]==="INBOX")? 
-    (<div className="title-wrapper">
+    (
+    <Tabs>
+    <TabPanel>
+    <div className="title-wrapper">
       <nav>
             <h6 className="title-page">
                 <span className = "title-wrapper">Tasks Inbox</span>
@@ -179,7 +184,10 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         <TaskItem key={taskItem.id} taskItem={taskItem} {...events} onPinTask={onPinTaskFunction} onArchiveTask={OnArchiveTask} />
         ):null
       ))}
-    </div>)
+    </div>
+    </TabPanel>
+    </Tabs>
+    )
     :<div><p></p></div>
 
   }
@@ -187,7 +195,10 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   {
 
     (store.buttonFilterTab[0]==="ALL" || store.buttonFilterTab[0]==="ARCHIVED")? 
-    (<div className="title-wrapper-archived">
+    (
+      <Tabs>
+    <TabPanel>
+    <div className="title-wrapper-archived">
       <nav>
             <h6 className="title-page">
                 <span>Tasks Archived</span>
@@ -201,7 +212,10 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         
       ))}
       
-    </div>)  : (<div><p></p></div>)
+    </div>
+    </TabPanel>
+    </Tabs>
+    )  : (<div><p></p></div>)
 
 }
     </div>

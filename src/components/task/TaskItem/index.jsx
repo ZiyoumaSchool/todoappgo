@@ -22,6 +22,7 @@ export function format(theDate){
   
 }
 
+let varDate= Date()
 
 export default function TaskItem({ taskItem: {  id, title, dateBegin, dateEnd, description, state },
                                                  onArchiveTask,
@@ -39,6 +40,7 @@ console.log("lalalala45", today.toLocaleDateString(userLanguage))
 	let  yyyy 		= today.getFullYear();
 
 	var ladate =  dd + '/' + mm + '/' + yyyy;
+  
 
   return (
     <div className={`list-item ${state}`}>
@@ -111,6 +113,6 @@ TaskItem.defaultProps = {
   // loading: true,
   // title : "Peace in Africa",
   // onSelect : false,
-  // dateEnd : Date.now(),
+  dateEnd : Date.now(),
   
  };

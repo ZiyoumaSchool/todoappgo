@@ -26,6 +26,8 @@ export default function SectionAddTask(Tasksource) {
   const {store, setStore} = useContext(ApplicationContext);
   const [myvalue, setMyvalue] = useState('');
   const [day, setDay] = useState({selectedDay:''});
+  const [value, setValue] = useState("")
+  let userLanguage = window.navigator.userLanguage || window.navigator.language;
 
   const notify = (msg) => toast(msg);
 
@@ -38,19 +40,26 @@ export default function SectionAddTask(Tasksource) {
     setDay({ selectedDay: d });
     console.log("Peaceful45", day.selectedDay.toString());
   }
+  
 
+  let varDate= Date()
+  let today = new Date(varDate)
 
 
   function handleChange (event){
           setMyvalue(event.target.value);
-          var userLanguage = window.navigator.userLanguage || window.navigator.language;
+          // var userLanguage = window.navigator.userLanguage || window.navigator.language;
           // const regexDate = /^\d{2}\/\d{2}\/\d{4}$/
           console.log("p35", userLanguage);
           // console.log("p351", regexDate);
           let mdy = ['month', 'date', 'year'];
           let hms = ['hour', 'minute', 'second'];
+          const start = Date.now();
+          console.log("LE SUCRE DU LAIT", start)
           mdy = new Date().toLocaleDateString(userLanguage).split("/");
           hms = new Date().toLocaleTimeString(userLanguage).split(/:| /);
+          // let v1 = new Date().toLocaleDateString(userLanguage).split("/");
+          console.log("Les shawarma", varDate)
           console.log(mdy[0],hms);
         };
   
@@ -65,14 +74,17 @@ export default function SectionAddTask(Tasksource) {
 
     // const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
+    
     store.stateList[1]([...store.stateList[0], { id: Date.now(),
       title:myvalue,       
-      dateEnd: day.selectedDay.toString(),
+      dateEnd: day.selectedDay.toString()===""?today : day.selectedDay.toString(),
       state: 'TASK_INBOX'
     }])
     
     console.log('state--->', store.stateList[0])
     setMyvalue('');  
+    setDay({selectedDay:''});
+    setValue("");
     
   } 
   const lapaz = day   
@@ -90,6 +102,8 @@ export default function SectionAddTask(Tasksource) {
                 <DayPickerInput 
                     day={day}
                     onDayChange = {handleDayChange}
+                    placeholder = {today.toLocaleDateString(userLanguage)}
+                    value = {today.toLocaleDateString(userLanguage)}
                 />
               </div>
 
