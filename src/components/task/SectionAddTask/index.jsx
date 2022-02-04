@@ -2,7 +2,7 @@ import React, {useContext} from 'react';
 import ReactDOM from 'react-dom';
 import { ApplicationContext } from '../../../pages/TaskHomePage'
 import '../task.css';
-import InputTextNewTask from '../InputTextNewTask';
+import InputTextNewTask from '../InputTextNewTask/index'
 import ButtonSubmit from '../../ButtonSubmit';
 import { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
