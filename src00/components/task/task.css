@@ -1,0 +1,152 @@
+/* TasKAdd CSS */
+
+.title-wrapper{
+    background-color: lightblue;
+}
+
+.title-wrapper-archived{
+    margin-top: 30px;
+    background-color: grey;
+}
+.taskitem-archived {
+    background-color: rgb(6, 41, 44);
+}
+
+.filter-section {
+    /* border-bottom: 1px solid rgba(4, 68, 102, 0.953); */
+    color : rgb(7, 54, 30);
+    text-align:left;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    height: 40px;
+}
+
+
+.wrapper {
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    border-bottom: 1px solid rgba(240, 79, 4, 0.953);
+    padding: 2px 2px;
+    display: flex;
+    vertical-align: middle;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+.add-task-1 {
+    color : rgb(7, 54, 30);
+    text-align:right;
+    padding-left: 5%;
+    padding-right: 5%;
+    margin-bottom: 50px;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+    width: 90%;
+    height: 50px;
+    /* border-bottom: 1px solid rgba(233, 178, 158, 0.953); */
+}
+.add-task-2 {
+    color : rgb(7, 54, 30);
+    text-align: left;
+    padding-left: 1%;
+    padding-right: 1%;
+    justify-content: flex-end;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+    width: 60%;
+    height: 50px;
+}
+
+.add-task-3 {
+    color : rgb(7, 54, 30);
+    text-align: left;
+    padding: 32px;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: center;
+    position: relative;
+    display: inline-block;
+    width: 10%;
+    height: 150px;
+}
+
+
+/* TaskItem CSS */
+
+.taskitem-1 {
+    color : rgb(7, 54, 30);
+    text-align:left;
+    padding-left: 2%;
+    padding-right: 2%;
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: left;
+    position: relative;
+    vertical-align: middle;
+    margin-top: 10px;
+    margin-left: 3px;
+    display: inline-block;
+    width: 60%;
+    /* height: 5px; */
+}
+
+.taskitem-stars {
+    
+    text-align:left;
+    padding-left: 2%;
+    /* padding-right: 2%; */
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: left;
+    vertical-align: middle;
+    margin-top: 6px;
+    position: relative;
+    display: inline-block;
+    width: 2%;
+    /* //height: 5px; */
+}
+
+.taskitem-checked {
+    
+    text-align:left;
+    padding-left: 2px;
+    /* padding-right: 2%; */
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: left;
+    vertical-align: middle;
+    margin-top: 5px;
+    margin-right: 3px;
+    position: relative;
+    display: inline-block;
+    width: 2%;
+    /* //height: 5px; */
+}
+
+.taskitem-date {
+    
+    text-align:left;
+    padding-left: 2%;
+    /* padding-right: 2%; */
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: left;
+    vertical-align: middle;
+    margin-top: 15px;
+    position: relative;
+    display: inline-block;
+    width: 30%;
+    height: 5px;
+}

@@ -8,8 +8,6 @@ import TaskItem from '../TaskItem';
 import '../task.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
 
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
@@ -67,7 +65,7 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
   //////////////////////  OnPinnedTask //////////////////////////////////////
 
-  function onPinTaskFunction(id1) {
+  function onPinTask(id1) {
     // const e = Event;
     // e.preventDefault();
     
@@ -78,38 +76,20 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     // if(editTab[i].id===store.idTaskTab[0]){
       if(editTab[i].id===id1 && editTab[i].state !=="TASK_PINNED" ){
         desc = editTab[i].title
-      console.log("Activate Pinned ", editTab[i])
+      console.log("Archivage ", editTab[i])
       editTab[i]={
         id:  editTab[i].id, 
         title: editTab[i].title, 
         dateEnd:  editTab[i].dateEnd, 
         state:  "TASK_PINNED"
       }
-
-      notify("Task : "+desc+" Pinned with success");
-      
-    }  else if(editTab[i].id===id1 && editTab[i].state ==="TASK_PINNED" ){
-      desc = editTab[i].title
-    console.log("Desactivate Pinned ", editTab[i])
-    editTab[i]={
-      id:  editTab[i].id, 
-      title: editTab[i].title, 
-      dateEnd:  editTab[i].dateEnd, 
-      state:  "TASK_INBOX"
-    }
-
-    notify("Task : "+desc+" Unpinned with success");
+    } 
     
-  }        
-
   }
-     
-
-      store.stateList[1](editTab)
-      store.stateList[1](store.stateList[0].filter(item=>item.state!==""))
-      console.log("Le STORY ", store.stateList[0])
-
-  
+  notify("Tache : "+desc+" épinglée avec succès");
+  store.stateList[1](editTab)
+    store.stateList[1](store.stateList[0].filter(item=>item.state!==""))
+    console.log("Le STORY ", store.stateList[0])
 
 }
 
@@ -170,10 +150,7 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
  {  
 
   (store.buttonFilterTab[0]==="ALL" || store.buttonFilterTab[0]==="INBOX")? 
-    (
-    <Tabs>
-    <TabPanel>
-    <div className="title-wrapper">
+    (<div className="title-wrapper">
       <nav>
             <h6 className="title-page">
                 <span className = "title-wrapper">Tasks Inbox</span>
@@ -181,13 +158,10 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         </nav>
       {tasksInOrder.map(taskItem => (
         taskItem.state !== "TASK_ARCHIVED" ?(
-        <TaskItem key={taskItem.id} taskItem={taskItem} {...events} onPinTask={onPinTaskFunction} onArchiveTask={OnArchiveTask} />
+        <TaskItem key={taskItem.id} taskItem={taskItem} {...events} onPinTask={onPinTask} onArchiveTask={OnArchiveTask} />
         ):null
       ))}
-    </div>
-    </TabPanel>
-    </Tabs>
-    )
+    </div>)
     :<div><p></p></div>
 
   }
@@ -195,10 +169,7 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   {
 
     (store.buttonFilterTab[0]==="ALL" || store.buttonFilterTab[0]==="ARCHIVED")? 
-    (
-      <Tabs>
-    <TabPanel>
-    <div className="title-wrapper-archived">
+    (<div className="title-wrapper-archived">
       <nav>
             <h6 className="title-page">
                 <span>Tasks Archived</span>
@@ -212,10 +183,7 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         
       ))}
       
-    </div>
-    </TabPanel>
-    </Tabs>
-    )  : (<div><p></p></div>)
+    </div>)  : (<div><p></p></div>)
 
 }
     </div>
