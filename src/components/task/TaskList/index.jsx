@@ -1,6 +1,6 @@
 import React, {useContext, useState}  from 'react';
 import PropTypes from 'prop-types';
-import {Tasksource} from '../../../datas/Tasksource';
+// import {Tasksource} from '../../../datas/Tasksource';
 import "../../../index.css"
 import { ApplicationContext } from '../../../pages/TaskHomePage';
 
@@ -149,7 +149,7 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       </div>
     );
   }
-  if (Tasksource.length === 0) {
+  if (tasks.length === 0) {
     return (
       <div className="list-items">
         <div className="wrapper-message">
@@ -229,7 +229,7 @@ TaskList.propTypes = {
     /** The list of tasks */
     tasks: PropTypes.arrayOf(PropTypes.shape({
       /** Id of the task */
-      id: PropTypes.number.isRequired,
+      // id: PropTypes.number.isRequired,
       /** Title of the task */
       title: PropTypes.string.isRequired,
       /** Current state of the task */

@@ -3,11 +3,17 @@ import ReactDOM from 'react-dom';
 import SectionAddTask from '../../components/task/SectionAddTask'
 import SectionEditTask from '../../components/task/SectionEditTask'
 import SectionFilterTask from '../../components/task/SectionFilterTask'
-import { Tasksource } from '../../datas/Tasksource';
+// import { Tasksource } from '../../datas/Tasksource';
+import Tasksource from '../../datas/Tasksource';
+import { TasksourceList } from '../../datas/Tasksource';
+// import { ApplicationContextSource } from '../../datas/Tasksource';
 import { v4 as uuidv4 } from 'uuid';
 import TaskList from '../../components/task/TaskList'
 import {createContext, useState} from 'react';
 import ModalComponent from '../../components/Modal';
+
+
+
 
 
 export const ApplicationContext = createContext();
@@ -15,12 +21,21 @@ export const ApplicationContext = createContext();
 
 
 
-
 export default function TaskHomePage() {
 
- 
 
-    const myvar = Tasksource
+  //  const c = Tasksource
+  //  console.log("On dit quoi", c)
+
+  // const {storeSource, setStore} = useContext(ApplicationContextSource);
+
+  // console.log("STORESOURCE", storeSource)
+
+  // const Tasksource = storeSource  
+  // const myvar = Tasksource
+  const myvar = TasksourceList
+
+    console.log("VOILA UNE BONNE SOURCE",myvar)
 
     const [state1, setState1] = useState(myvar);
     const [show, setShow] = useState(false);
@@ -43,7 +58,7 @@ export default function TaskHomePage() {
         
       }
     
-    const initialList = Tasksource;
+    // const initialList = Tasksource;
     //const initialList = TaskList;
     // const [list, setList] = useState(initialList);
     
@@ -83,10 +98,12 @@ export default function TaskHomePage() {
        />
         {/* <SectionAddTask /> */}
         <SectionFilterTask />
-
         <ModalComponent title="Edit Task" show={store.showModal[0]} component={TaskEditComponent()} />
         <TaskList tasks={store.stateList[0]}/>
+        <Tasksource />
         </ApplicationContext.Provider>
+        
+
     </>
         
 

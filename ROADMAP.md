@@ -33,6 +33,11 @@
  - [x] Filter the tasks
 
 
+**[2.0.0] - [2022-02-10]**
+ Expected delevery date of the first version that include the basic features
+ - Add a firebase database
+
+
 
 [BACKLOG]
 - [] Use DINNextLTPro-Bold as default font-family
