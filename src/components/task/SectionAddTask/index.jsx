@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import ReactDOM from 'react-dom';
-import { ApplicationContext } from '../../../pages/TaskHomePage'
+import { ApplicationContext } from '../../../pages/TaskHomePage/index'
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask/index'
 import ButtonSubmit from '../../ButtonSubmit';
@@ -11,6 +11,7 @@ import '../../DayPickerInput/DayPickerInput.css';
 import 'react-day-picker/lib/style.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import db from '../../../config/firebaseDb';
 
 
 
@@ -73,13 +74,48 @@ export default function SectionAddTask(Tasksource) {
     //const today = new Date();
 
     // const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
+    // notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
+
+    ////********* */
+    var size = 0;
+    db.collection('tasks').get().then(snap => {
+			size = snap.size // will return the collection size
+
+			db.collection("tasks").add({
+				id:size+1,
+				title: myvalue,
+				dateEnd:day.selectedDay.toString()===""?today : day.selectedDay.toString(),
+				state : "TASK_INBOX",
+				
+			})
+			.then((docRef) => {
+				alert("Data Successfully Submitted");
+        notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
+			})
+			.catch((error) => {
+				console.error("Error adding document: ", error);
+        alert("YOU LOOSE");
+			});
+			
+		 });
+    //////******** */
     
     store.stateList[1]([...store.stateList[0], { id: Date.now(),
       title:myvalue,       
       dateEnd: day.selectedDay.toString()===""?today : day.selectedDay.toString(),
       state: 'TASK_INBOX'
     }])
+
+
+    ////////////////////////////////////////************************** */
+
+    
+	  
+
+	    // END Add a new task to the database
+
+
+    ///////////////////////////////////////************************** */
     
     console.log('state--->', store.stateList[0])
     setMyvalue('');  
@@ -87,6 +123,9 @@ export default function SectionAddTask(Tasksource) {
     setValue("");
     
   } 
+
+
+
   const lapaz = day   
   console.log("LaPAZ3545", lapaz.selectedDay.toString());
   return (

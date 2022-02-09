@@ -1,6 +1,6 @@
 import React, {useContext} from 'react';
 import ReactDOM from 'react-dom';
-import { ApplicationContext } from '../../../pages/TaskHomePage'
+import { ApplicationContext } from '../../../pages/TaskHomePage/index'
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask';
 import ButtonSubmit from '../../ButtonSubmit';

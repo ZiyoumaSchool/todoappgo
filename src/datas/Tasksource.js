@@ -1,142 +1,78 @@
-import React, {useContext, useState}  from 'react';
+import React, {useContext, useState, useEffect}  from 'react';
 import db from '../config/firebaseDb'
-// import {createContext, useState} from 'react';
-import { ApplicationContext } from '../pages/TaskHomePage';
-
-// export const ApplicationContextSource = createContext();
+// import { ApplicationContext } from '../pages/TaskHomePage'
 
 let list=[]
 
+// async function demoInitialize(db) {
+//   // [START demo_initialize]
+//   // Fetch data from Firestore
+//   const snapshot = await db.collection('tasks').get();  
 
+//   // Print the ID and contents of each document
+//   snapshot.forEach(doc => {
+//     console.log(doc.id, ' => ', doc.data());
+//   });
+//   // [END demo_initialize]
+// }
 
-async function demoInitialize(db) {
-  // [START demo_initialize]
-  // Fetch data from Firestore
-  const snapshot = await db.collection('tasks').get();
+// demoInitialize(db)
+
+// db.collection("tasks").get().then((querySnapshot) => {        
+//   // Loop through the data and store
+//   // it in array to display
+//   querySnapshot.forEach(element => {
+//       var data = element.data();
   
-
-  // Print the ID and contents of each document
-  snapshot.forEach(doc => {
-    console.log(doc.id, ' => ', doc.data());
-  });
-  // [END demo_initialize]
-}
-
-demoInitialize(db)
-
-
-db.collection("tasks").get().then((querySnapshot) => {        
-  // Loop through the data and store
-  // it in array to display
-  querySnapshot.forEach(element => {
-      var data = element.data();
-   //   console.log("data ",data)
-      list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})              
-     // setInfo(arr => [...arr , data]);
-        
-  });
- // console.log("result bd=====>",list)
- 
+//       list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})              
+            
+//   }); 
   
-})
+// })
+
+// export const Tasksource = list
+
+/////////////////////////////////////////////////////////////////////////////
+const ref = db.collection('tasks')
+
+console.log("REFERENCE", ref)
 console.log("default 000 =>",list)
 
-const storeSource = list
+export function DataSource(){
+// const {store, setStore} = useContext(ApplicationContext);
+const [data, setData] = useState([])
+const [loader, setLoader] = useState(true)
 
-let source = []
+// console.log("STORAGEEEEEE=>",store.stateList[0])
 
+function getData(){
+  ref.onSnapshot((querySnapshot) => {
+    const items = []
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data())
+      // list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})
+    })
+    setData(items)
+    setLoader(false)
+    list = items
 
-//export const Tasksource = defaultTasks1
-
-
-export default function Tasksource() {
-
-  const {store, setStore} = useContext(ApplicationContext);
-
-  store.stateList[1](storeSource)
-  // store.stateList[1](store.stateList[0].filter(item=>item.state!==""))
-
-  source = store.stateList[0]
-  console.log("StoreSource", source)
-
-  // const defaultTasks1 = list 
-
-  return (
-    <div>
-       {/* <ApplicationContext.Provider value={{state1, setState1}}>
-       <ApplicationContextSource.Provider value={{storeSource}}>
+  })
+}
+  useEffect(()=> {
+    getData()
+    console.log("Dityrambique DATA", data)
     
-       </ApplicationContextSource.Provider> */}
-   </div>
-       
+  })
 
-   )
-
+  // return list
+  // store.stateList[1](list)
 
 }
-console.log("StoreSource505555", source)
-export let TasksourceList = source
+
+export const Tasksource = list
+
+console.log("NUVIBZ", list)
 
 
-// export const Tasksource = [
-//     {
-//       id: 1,
-//       title: 'The Godfather25',
-//       dateEnd: 'Tue Jan 14 2022 12:06:37 GMT+0100',
-//       state: 'TASK_PINNED'
-//     },
-//     {
-//       id: 2,
-//       title: 'Inception',
-//       dateEnd: 'Tue Jan 16 2022 12:06:37 GMT+0100',
-//       state: 'TASK_ARCHIVED'
-//     },
-//     {
-//       id: 3,
-//       title: 'Fight Club',
-//       dateEnd: 'Tue Jan 11 2022 12:06:37 GMT+0100',
-//       state: 'TASK_ARCHIVED'
-//     },
-//     {
-//       id: 4,
-//       title: 'Pulp Fiction',
-//       dateEnd:'Tue Jan 15 2022 12:06:37 GMT+0100',
-//       state: 'TASK_ARCHIVED'
-//     },
-//     {
-//       id: 5,
-//       title: 'Forrest Gump',
-//       dateEnd: 'Tue Jan 18 2022 12:06:37 GMT+0100',
-//       state: 'TASK_PINNED'
-//     },
-//     {
-//       id: 6,
-//       title: 'The Matrix',
-//       dateEnd: 'Tue Jan 20 2022 12:06:37 GMT+0100',
-//       state: 'TASK_INBOX'
-//     },
-//     {
-//       id: 7,
-//       title: 'Spirited Away',
-//       dateEnd: 'Tue Jan 28 2022 12:06:37 GMT+0100',
-//       state: 'TASK_INBOX'
-//     },
-//     {
-//       id: 8,
-//       title: 'Interstellar',
-//       dateEnd: 'Tue Jan 21 2022 12:06:37 GMT+0100',
-//       state: 'TASK_INBOX'
-//     },
-//     {
-//       id: 9,
-//       title: 'The Usual Suspects',
-//       dateEnd: 'Tue Jan 31 2022 12:06:37 GMT+0100',
-//       state: 'TASK_INBOX'
-//     },
-//     {
-//       id: 10,
-//       title: 'The Departed',
-//       dateEnd: 'Tue Jan 18 2022 12:06:37 GMT+0100',
-//       state: 'TASK_ARCHIVED'
-//     },
-//   ];
+
+
