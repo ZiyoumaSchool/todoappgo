@@ -12,6 +12,7 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
 import db from '../../../config/firebaseDb';
 import "firebase/compat/firestore";
+import {doc, collection, onSnapshot, addDoc, query, orderBy, deleteDoc, setDoc} from "firebase/firestore"
 
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
@@ -164,8 +165,7 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     
   }        
 
-  }
-     
+  }    
 
       store.stateList[1](editTab)
       store.stateList[1](store.stateList[0].filter(item=>item.state!==""))
@@ -177,15 +177,19 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
   //////////////////////  End /OnPinnedTask //////////////////////////////////////
 
+///////////////////////////////  DELETE TASK \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 
-  // function OnArchiveTask(id){
-    
-  //   console.log("Voici alors l id", id)
-  //   //const {state, setState} = useContext(ApplicationContext);
-  //   console.log("La liste", store.stateList[0])
-  //   store.stateList[1](store.stateList[0].filter(item=>item.id!==id))
-  // }
+async function deleteDocument(id) {
 
+  // console.log("AKIE REQUEST",id)
+  let request = await deleteDoc(doc(db, "tasks", id.toString()));
+  console.log("REQUEST",request)
+  // notify("Task : "+desc+" Unpinned with success");
+  notify("Task : "+store.titleTaskTab[0]+" Deleted with success");
+}
+
+
+//////////////////////////////// END DELETE TASK \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
   const events = {
     onPinTask,
     onArchiveTask,
@@ -243,7 +247,10 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         </nav>
       {tasksInOrder.map(taskItem => (
         taskItem.state !== "TASK_ARCHIVED" ?(
-        <TaskItem key={taskItem.id} taskItem={taskItem} {...events} onPinTask={onPinTaskFunction} onArchiveTask={OnArchiveTask} />
+        <TaskItem key={taskItem.id} taskItem={taskItem} {...events} 
+        onPinTask={onPinTaskFunction} onArchiveTask={OnArchiveTask} 
+        onDeleteTask = {deleteDocument}
+        />
         ):null
       ))}
     </div>
@@ -269,7 +276,10 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         
       {tasksInOrder.map(taskItem => (        
         taskItem.state === "TASK_ARCHIVED" ?(              
-        <TaskItem key={taskItem.id} taskItem={taskItem} {...events} onArchiveTask={OnArchiveTask} />        
+        <TaskItem key={taskItem.id} taskItem={taskItem} {...events} 
+        onArchiveTask={OnArchiveTask}
+        onDeleteTask = {deleteDocument}
+        />        
         ):null  
         
       ))}

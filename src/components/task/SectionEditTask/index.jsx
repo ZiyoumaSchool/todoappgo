@@ -17,7 +17,7 @@ import {doc, collection, onSnapshot, addDoc, query, orderBy, deleteDoc, setDoc} 
 
 
 
-export default function SectionAddTask(Tasksource) {
+export default function SectionEditTask(Tasksource) {
 
   const {store, setStore} = useContext(ApplicationContext);
   const v = store.titleTaskTab[0]
@@ -32,6 +32,12 @@ export default function SectionAddTask(Tasksource) {
   const [day, setDay] = useState({selectedDay:d});
 
   const notify = (msg) => toast(msg);
+
+  var userLanguage = window.navigator.userLanguage || window.navigator.language;
+  let  today 		= new Date(store.dateTaskTab[0]);
+  console.log("EDIT DATE 10022022", today.toLocaleDateString(userLanguage))
+
+  
 
   function handleDayChange(d) {
     setDay({ selectedDay: d });
@@ -49,8 +55,8 @@ export default function SectionAddTask(Tasksource) {
     let editTab = store.stateList[0];
     for(let i=0;i<editTab.length;i++){
     if(editTab[i].id===store.idTaskTab[0]){
-      console.log("ici json 99999999999999999 ", editTab[i])
-      alert("EH");
+      // console.log("ici json 99999999999999999 ", editTab[i])
+      // alert("EH");
 
       //////////////////////////////////////////
       
@@ -129,6 +135,7 @@ export default function SectionAddTask(Tasksource) {
                 <DayPickerInput 
                     day={day}
                     onDayChange = {handleDayChange}
+                    value={today.toLocaleDateString(userLanguage)}
                 />
               </div>
 

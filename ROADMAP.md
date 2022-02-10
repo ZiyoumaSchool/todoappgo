@@ -36,6 +36,14 @@
 **[2.0.0] - [2022-02-10]**
  Expected delevery date of the first version that include the basic features
  - Add a firebase database
+ - Add a task to the DB
+ - Update the Task DB
+ - Pin the Task and remove Pin DB
+ - Show realtime changes on the task list
+
+ - Fix form Date on SectionEditTask
+ - Fix Select Task Line
+
 
 
 

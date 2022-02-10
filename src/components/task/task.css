@@ -147,6 +147,21 @@
     margin-top: 15px;
     position: relative;
     display: inline-block;
-    width: 30%;
+    width: 20%;
+    height: 5px;
+}
+.taskitem-trash {
+    
+    text-align:right;
+    padding-left: 2%;
+    /* padding-right: 2%; */
+    justify-content: flex-start;
+    flex-direction: row;
+    align-items: right;
+    vertical-align: middle;
+    margin-top: 15px;
+    position: relative;
+    display: inline-block;
+    width: 10%;
     height: 5px;
 }
