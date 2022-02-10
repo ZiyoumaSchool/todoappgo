@@ -9,6 +9,9 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import '../../DayPickerInput/DayPickerInput.css';
+import db from '../../../config/firebaseDb';
+import "firebase/compat/firestore";
+import {doc, collection, onSnapshot, addDoc, query, orderBy, deleteDoc, setDoc} from "firebase/firestore"
 
 
 
@@ -46,7 +49,42 @@ export default function SectionAddTask(Tasksource) {
     let editTab = store.stateList[0];
     for(let i=0;i<editTab.length;i++){
     if(editTab[i].id===store.idTaskTab[0]){
-      console.log("ici json ", editTab[i])
+      console.log("ici json 99999999999999999 ", editTab[i])
+      alert("EH");
+
+      //////////////////////////////////////////
+      
+        const itemRef = doc(db, "tasks", editTab[i].id.toString());
+        console.log("ici papi", editTab[i].id)
+        // let name =  prompt("What would you like to update it to?")
+        setDoc(itemRef, {
+              id:  editTab[i].id, 
+              title: myvalue, 
+              // dateEnd:  editTab[i].dateEnd,
+              dateEnd:  day.selectedDay.toString(), 
+              state:  editTab[i].state
+        })
+        // const docRef = db.collection('tasks').doc(editTab[i].id);
+        // console.log("PECEECCE",db.collection('tasks').doc(editTab[i].id.toString()))
+    
+        db.collection('tasks').doc(editTab[i].id.toString()).update({
+        // name,
+        // timestamp: firebase.firestore.FieldValue.serverTimestamp()
+              id:  editTab[i].id, 
+              title: myvalue, 
+              // dateEnd:  editTab[i].dateEnd,
+              dateEnd:  day.selectedDay.toString(), 
+              state:  editTab[i].state
+      }).then(() => {
+        console.log('Profile Successfully Edited!');
+      }).catch((error) => {
+        console.log('Error updating the document:', error);
+      })
+
+    
+              
+      //////////////////////////////////////////
+
       editTab[i]={
          id:  editTab[i].id, 
         title: myvalue, 

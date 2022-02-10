@@ -10,6 +10,8 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import 'react-tabs/style/react-tabs.css';
+import db from '../../../config/firebaseDb';
+import "firebase/compat/firestore";
 
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
@@ -36,6 +38,21 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       if(editTab[i].id===id1 && editTab[i].state !=="TASK_ARCHIVED" ){
       console.log("Archivage ", editTab[i]);
       desc = editTab[i].title;
+       //////////////////////////////////////////      
+        db.collection('tasks').doc(editTab[i].id.toString()).update({
+          // name,
+          // timestamp: firebase.firestore.FieldValue.serverTimestamp()
+                // id:  editTab[i].id, 
+                // title: myvalue, 
+                // dateEnd:  editTab[i].dateEnd,
+                // dateEnd:  day.selectedDay.toString(), 
+                state: "TASK_ARCHIVED"
+        }).then(() => {
+          console.log("TASK_ARCHIVED !");
+        }).catch((error) => {
+          console.log('Error TASK_ARCHIVED :', error);
+        })                
+        //////////////////////////////////////////
       editTab[i]={
         id:  editTab[i].id, 
         title: editTab[i].title, 
@@ -46,6 +63,21 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
     } else if (editTab[i].id===id1 && editTab[i].state ==="TASK_ARCHIVED" ) {
       desc = editTab[i].title;
+      //////////////////////////////////////////      
+      db.collection('tasks').doc(editTab[i].id.toString()).update({
+        // name,
+        // timestamp: firebase.firestore.FieldValue.serverTimestamp()
+              // id:  editTab[i].id, 
+              // title: myvalue, 
+              // dateEnd:  editTab[i].dateEnd,
+              // dateEnd:  day.selectedDay.toString(), 
+              state: "TASK_INBOX"
+      }).then(() => {
+        console.log("TASK_INBOX !");
+      }).catch((error) => {
+        console.log('Error TASK_INBOX :', error);
+      })                
+      //////////////////////////////////////////
       editTab[i]={
        id:  editTab[i].id, 
        title: editTab[i].title, 
@@ -79,6 +111,21 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       if(editTab[i].id===id1 && editTab[i].state !=="TASK_PINNED" ){
         desc = editTab[i].title
       console.log("Activate Pinned ", editTab[i])
+       //////////////////////////////////////////      
+       db.collection('tasks').doc(editTab[i].id.toString()).update({
+        // name,
+        // timestamp: firebase.firestore.FieldValue.serverTimestamp()
+              // id:  editTab[i].id, 
+              // title: myvalue, 
+              // dateEnd:  editTab[i].dateEnd,
+              // dateEnd:  day.selectedDay.toString(), 
+              state: "TASK_PINNED"
+      }).then(() => {
+        console.log("TASK_PINNED !");        
+      }).catch((error) => {
+        console.log('Error TASK_PINNED :', error);
+      })                
+      //////////////////////////////////////////
       editTab[i]={
         id:  editTab[i].id, 
         title: editTab[i].title, 
@@ -91,6 +138,21 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
     }  else if(editTab[i].id===id1 && editTab[i].state ==="TASK_PINNED" ){
       desc = editTab[i].title
     console.log("Desactivate Pinned ", editTab[i])
+    //////////////////////////////////////////      
+    db.collection('tasks').doc(editTab[i].id.toString()).update({
+      // name,
+      // timestamp: firebase.firestore.FieldValue.serverTimestamp()
+            // id:  editTab[i].id, 
+            // title: myvalue, 
+            // dateEnd:  editTab[i].dateEnd,
+            // dateEnd:  day.selectedDay.toString(), 
+            state: "TASK_INBOX"
+    }).then(() => {
+      console.log("TASK_INBOX !");        
+    }).catch((error) => {
+      console.log('Error TASK_INBOX :', error);
+    })                
+    //////////////////////////////////////////
     editTab[i]={
       id:  editTab[i].id, 
       title: editTab[i].title, 

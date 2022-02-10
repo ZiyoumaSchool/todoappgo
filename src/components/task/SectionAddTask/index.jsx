@@ -12,6 +12,7 @@ import 'react-day-picker/lib/style.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import db from '../../../config/firebaseDb';
+import {doc, collection, onSnapshot, addDoc, query, orderBy, deleteDoc, setDoc} from "firebase/firestore"
 
 
 
@@ -80,22 +81,34 @@ export default function SectionAddTask(Tasksource) {
     var size = 0;
     db.collection('tasks').get().then(snap => {
 			size = snap.size // will return the collection size
-
-			db.collection("tasks").add({
-				id:size+1,
-				title: myvalue,
-				dateEnd:day.selectedDay.toString()===""?today : day.selectedDay.toString(),
-				state : "TASK_INBOX",
+      const d = day.selectedDay.toString()===""?today.toString() : day.selectedDay.toString()
+      console.log("DADADAD45",d)
+      
+			// db.collection("tasks").add({
+			// 	id:size+1,
+			// 	title: myvalue,
+			// 	dateEnd: d,
+			// 	state : "TASK_INBOX",
 				
-			})
-			.then((docRef) => {
-				alert("Data Successfully Submitted");
-        notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
-			})
-			.catch((error) => {
-				console.error("Error adding document: ", error);
-        alert("YOU LOOSE");
-			});
+			// })
+			// .then((docRef) => {
+			// 	// alert("Data Successfully Submitted");
+      //   notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
+			// })
+			// .catch((error) => {
+			// 	console.error("Error adding document: ", error);
+      //   alert("YOU LOOSE");
+			// });
+
+      size = size +1 
+      const itemRef = doc(db, "tasks", size.toString());
+      setDoc(itemRef, {
+        id:  size, 
+        title: myvalue, 
+        // dateEnd:  editTab[i].dateEnd,
+        dateEnd: d,
+				state : "TASK_INBOX",
+  })
 			
 		 });
     //////******** */
