@@ -1,5 +1,5 @@
 import React, {useContext} from 'react';
-import { ApplicationContext } from '../../../pages/TaskHomePage'
+import { ApplicationContext } from '../../../pages/TaskHomePage/index'
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask';
 import ButtonSubmit from '../../ButtonSubmit';
@@ -9,12 +9,15 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
 import '../../DayPickerInput/DayPickerInput.css';
+import db from '../../../config/firebaseDb';
+import "firebase/compat/firestore";
+import {doc, collection, onSnapshot, addDoc, query, orderBy, deleteDoc, setDoc} from "firebase/firestore"
 
 
 
 
 
-export default function SectionAddTask(Tasksource) {
+export default function SectionEditTask(Tasksource) {
 
   const {store, setStore} = useContext(ApplicationContext);
   const v = store.titleTaskTab[0]
@@ -29,6 +32,12 @@ export default function SectionAddTask(Tasksource) {
   const [day, setDay] = useState({selectedDay:d});
 
   const notify = (msg) => toast(msg);
+
+  var userLanguage = window.navigator.userLanguage || window.navigator.language;
+  let  today 		= new Date(store.dateTaskTab[0]);
+  console.log("EDIT DATE 10022022", today.toLocaleDateString(userLanguage))
+
+  
 
   function handleDayChange(d) {
     setDay({ selectedDay: d });
@@ -46,7 +55,42 @@ export default function SectionAddTask(Tasksource) {
     let editTab = store.stateList[0];
     for(let i=0;i<editTab.length;i++){
     if(editTab[i].id===store.idTaskTab[0]){
-      console.log("ici json ", editTab[i])
+      // console.log("ici json 99999999999999999 ", editTab[i])
+      // alert("EH");
+
+      //////////////////////////////////////////
+      
+        const itemRef = doc(db, "tasks", editTab[i].id.toString());
+        console.log("ici papi", editTab[i].id)
+        // let name =  prompt("What would you like to update it to?")
+        setDoc(itemRef, {
+              id:  editTab[i].id, 
+              title: myvalue, 
+              // dateEnd:  editTab[i].dateEnd,
+              dateEnd:  day.selectedDay.toString(), 
+              state:  editTab[i].state
+        })
+        // const docRef = db.collection('tasks').doc(editTab[i].id);
+        // console.log("PECEECCE",db.collection('tasks').doc(editTab[i].id.toString()))
+    
+        db.collection('tasks').doc(editTab[i].id.toString()).update({
+        // name,
+        // timestamp: firebase.firestore.FieldValue.serverTimestamp()
+              id:  editTab[i].id, 
+              title: myvalue, 
+              // dateEnd:  editTab[i].dateEnd,
+              dateEnd:  day.selectedDay.toString(), 
+              state:  editTab[i].state
+      }).then(() => {
+        console.log('Profile Successfully Edited!');
+      }).catch((error) => {
+        console.log('Error updating the document:', error);
+      })
+
+    
+              
+      //////////////////////////////////////////
+
       editTab[i]={
          id:  editTab[i].id, 
         title: myvalue, 
@@ -60,22 +104,7 @@ export default function SectionAddTask(Tasksource) {
     store.stateList[1](editTab)
     store.showModal[1](false)
   }
-    // const numer = store.idTaskTab[0]-1 ;
-    // console.log("la vraie canne", store.idTaskTab[0]);
-    // editTab[numer].title = myvalue;
-    // console.log("Oh Banana", editTab[numer].title);
-    // store.stateList[1](editTab)
-    // console.log("Le bounga séché", store.stateList[0]);
-    // store.titleTaskTab[1]()
-    // editTab[store.idTaskTab[0]]
-    // console.log("La liste", store.stateList[0]);
-    // store.showModal[1](false)
-   //store.stateList[1](store.stateList[0].filter(item=>item.id!==store.idTaskTab[0]))
-
-    // console.log('stateLit New after Edit', store.stateList[0])
-    // setMyvalue('');  
-    
-  
+      
 
   return (
 <form>
@@ -91,6 +120,7 @@ export default function SectionAddTask(Tasksource) {
                 <DayPickerInput 
                     day={day}
                     onDayChange = {handleDayChange}
+                    value={today.toLocaleDateString(userLanguage)}
                 />
               </div>
 

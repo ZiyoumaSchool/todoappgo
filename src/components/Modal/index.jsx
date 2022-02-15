@@ -6,7 +6,7 @@ import "../../index.css";
 import {createContext, useState, useContext} from 'react';
 import { Button } from 'react-bootstrap';
 import { Modal } from 'react-bootstrap';
-import { ApplicationContext } from '../../pages/TaskHomePage'
+import { ApplicationContext } from '../../pages/TaskHomePage/index'
 
   const DefaultComponent =()=>{
     // const {store, setStore} = useContext(ApplicationContext);

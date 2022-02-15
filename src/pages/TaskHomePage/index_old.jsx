@@ -29,11 +29,31 @@ export const ApplicationContext = createContext();
   //  DataSource();
 // console.log("STORAGEEEEEE=>",store.stateList[0])
  
+function getData(){
+  ref.onSnapshot((querySnapshot) => {
+    const items = []
+    querySnapshot.forEach((doc) => {
+      items.push(doc.data())
+      // list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})
+    })
+    setData(items)
+    setLoader(false)
+    list = items
+
+  })
+}
+
+useEffect(()=> {
+  getData()
+  console.log("Dityrambique DATA", data)
+  
+},[])
+
      const myvar = data
   // const myvar = DataSource()
 
-    // console.log("VOILA UNE BONNE SOURCE",myvar)
-    const [state1, setState1] = useState(myvar);
+    console.log("VOILA UNE BONNE SOURCE",myvar)
+    const [state1, setState1] = useState(data);
     const [show, setShow] = useState(false);
     const [idTask, setIdTask] = useState(0);
     const [titleTask, setTitleTask] = useState("");
@@ -56,34 +76,8 @@ export const ApplicationContext = createContext();
         labelFilterTab:[labelFilter, setLabelFilter]
         
       }     
-    console.log("77777777 DATA", myvar)
+      console.log("77777777 DATA", myvar)
       
-
-
-    function getData(){
-      ref.onSnapshot((querySnapshot) => {
-         const items = []
-         querySnapshot.forEach((doc) => {
-           items.push(doc.data())
-           // list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})
-         })
-         store.stateList[1](items)
-         setLoader(false)
-         list = items
-     
-       })
-     }
-     
-     
-     //getData()
-     
-     useEffect(()=> {
-     getData()
-       console.log("Dityrambique DATA", data)
-       
-     },[])
-     
-
     const TaskEditComponent =()=>{
         return (        
                 <SectionEditTask />                
@@ -97,8 +91,8 @@ export const ApplicationContext = createContext();
             <SectionAddTask/>
             <SectionFilterTask />
             <ModalComponent title="Edit Task" show={store.showModal[0]} component={TaskEditComponent()} />
-            {/* <TaskList tasks={myvar} /> */}
-            <TaskList tasks={store.stateList[0]} />
+            {/* <TaskList tasks={myvar}/> */}
+            <TaskList tasks={store.stateList[0]}/>
         </ApplicationContext.Provider>
         
 
