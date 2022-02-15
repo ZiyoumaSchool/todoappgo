@@ -147,17 +147,17 @@
     margin-top: 15px;
     position: relative;
     display: inline-block;
-    width: 20%;
+    width: 10%;
     height: 5px;
 }
 .taskitem-trash {
     
-    text-align:right;
+    text-align:left;
     padding-left: 2%;
-    /* padding-right: 2%; */
+    /* padding-left: 2%; */
     justify-content: flex-start;
     flex-direction: row;
-    align-items: right;
+    align-items: left;
     vertical-align: middle;
     margin-top: 15px;
     position: relative;

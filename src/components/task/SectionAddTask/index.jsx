@@ -120,9 +120,7 @@ export default function SectionAddTask(Tasksource) {
     }])
 
 
-    ////////////////////////////////////////************************** */
-
-    
+    ////////////////////////////////////////************************** */  
 	  
 
 	    // END Add a new task to the database

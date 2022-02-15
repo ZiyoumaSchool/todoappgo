@@ -104,22 +104,7 @@ export default function SectionEditTask(Tasksource) {
     store.stateList[1](editTab)
     store.showModal[1](false)
   }
-    // const numer = store.idTaskTab[0]-1 ;
-    // console.log("la vraie canne", store.idTaskTab[0]);
-    // editTab[numer].title = myvalue;
-    // console.log("Oh Banana", editTab[numer].title);
-    // store.stateList[1](editTab)
-    // console.log("Le bounga séché", store.stateList[0]);
-    // store.titleTaskTab[1]()
-    // editTab[store.idTaskTab[0]]
-    // console.log("La liste", store.stateList[0]);
-    // store.showModal[1](false)
-   //store.stateList[1](store.stateList[0].filter(item=>item.id!==store.idTaskTab[0]))
-
-    // console.log('stateLit New after Edit', store.stateList[0])
-    // setMyvalue('');  
-    
-  
+      
 
   return (
 <form>

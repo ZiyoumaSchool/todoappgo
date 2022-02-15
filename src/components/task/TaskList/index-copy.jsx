@@ -13,47 +13,17 @@ import 'react-tabs/style/react-tabs.css';
 import db from '../../../config/firebaseDb';
 import "firebase/compat/firestore";
 import {doc, collection, onSnapshot, addDoc, query, orderBy, deleteDoc, setDoc} from "firebase/firestore"
-
-import Button from "@material-ui/core/Button";
-import Dialog from "@material-ui/core/Dialog";
-import DialogActions from "@material-ui/core/DialogActions";
-import DialogContent from "@material-ui/core/DialogContent";
-import DialogContentText from "@material-ui/core/DialogContentText";
-import DialogTitle from "@material-ui/core/DialogTitle";
+// import ModalComponent from '../../Modal';
 
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
   //const {state1, setState1} = useContext(ApplicationContext);
-  const [open, setOpen] = useState();
-  const [id, setId] = useState()
-  const [title, setTitle] = useState()
-
-  ///////-------------------------------------------------------
-
-  function handleClickOpen (ident, titre) {
-    setOpen(true );
-    setId(ident)
-    setTitle(titre)
-  };
-
-  function handleClose(){
-    setOpen(false);
-  };
-
-  function handleAgree(){
-    console.log("I agree!",id);
-    handleClose();
-    deleteDocument(id)
-  };
-
-  function handleDisagree (){
-    console.log("I do not agree.",id);
-    handleClose();
-  };
-  
-  ///////-------------------------------------------------------
-
+  const [todos, setToDos] = useState([]);
+  const [popup, setPopup] = useState({
+    show: false, // initial values set to false and null
+    id: null,
+  });
   // This will show the Cofirmation Box
   const {store, setStore} = useContext(ApplicationContext);
 
@@ -222,7 +192,7 @@ async function deleteDocument(id) {
   let request = await deleteDoc(doc(db, "tasks", id.toString()));
   console.log("REQUEST",request)
   // notify("Task : "+desc+" Unpinned with success");
-  notify("Task : "+title+" Deleted with success");
+  notify("Task : "+store.titleTaskTab[0]+" Deleted with success");
 }
 
 //////////////////////////////// END DELETE TASK \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -232,8 +202,52 @@ async function deleteDocument(id) {
 
 /////////////******************** */
 
+function Popup({ handleDeleteTrue, handleDeleteFalse }) {
+  return (
+    <div className="modal">
+      <div className="modal_box">
+        <p>You sure you wanna delete?</p>
+        <button onClick={handleDeleteFalse}>Cancel</button>
+        <button onClick={handleDeleteTrue} className="modal_buttoDelete">
+          Confirm
+        </button>
+      </div>
+    </div>
+  );
+}
 
+// This will show the Cofirmation Box
 
+const handleDelete = (id) => {
+  setPopup({
+    show: true,
+    id,
+  });
+};
+
+// This will perform the deletion and hide the Confirmation Box
+
+const handleDeleteTrue = () => {
+  if (popup.show && popup.id) {
+    const p = store.idTaskTab[0]
+    // let filteredData = todos.filter((todo) => todo.id !== popup.id);
+    // setToDos(filteredData);
+    deleteDocument(p)
+    setPopup({
+      show: false,
+      id: null,
+    });
+  }
+};
+
+// This will just hide the Confirmation Box when user clicks "No"/"Cancel"
+
+const handleDeleteFalse = () => {
+  setPopup({
+    show: false,
+    id: null,
+  });
+};
 
 /////////////******************** */
 
@@ -297,8 +311,7 @@ async function deleteDocument(id) {
         taskItem.state !== "TASK_ARCHIVED" ?(
         <TaskItem key={taskItem.id} taskItem={taskItem} {...events} 
         onPinTask={onPinTaskFunction} onArchiveTask={OnArchiveTask} 
-        handleClickOpen={handleClickOpen}
-        // onDeleteTask = {deleteDocument}
+        onDeleteTask = {deleteDocument}
     //     onDeleteTask = {popup.show && (
 
     //       //  POPUP CONFIRM DELETE TASK 
@@ -339,7 +352,6 @@ async function deleteDocument(id) {
         <TaskItem key={taskItem.id} taskItem={taskItem} {...events} 
         onArchiveTask={OnArchiveTask}
         onDeleteTask = {deleteDocument}
-        handleClickOpen={handleClickOpen}
     //     onDeleteTask = {popup.show && (
 
     //       //  POPUP CONFIRM DELETE TASK 
@@ -361,39 +373,7 @@ async function deleteDocument(id) {
 
 }
 
-      {/* //////////////////// */}
-
-      <div>
-        {/* Button to trigger the opening of the dialog */}
-        {/* <Button onClick={handleClickOpen}>Open alert dialog</Button> */}
-        {/* Dialog that is displayed if the state open is true */}
-        <Dialog
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="alert-dialog-title"
-          aria-describedby="alert-dialog-description"
-        >
-          <DialogTitle id="alert-dialog-title">
-            {"Confirm Delete Task"}
-          </DialogTitle>
-          <DialogContent>
-            <DialogContentText id="alert-dialog-description">
-              Do You Really want to delete this task : {title} ?
-            </DialogContentText>
-          </DialogContent>
-          <DialogActions>
-            <Button onClick={handleDisagree} color="primary">
-              Disagree
-            </Button>
-            <Button onClick={handleAgree} color="primary" autoFocus>
-              Agree
-            </Button>
-          </DialogActions>
-        </Dialog>
-      </div>
-
-
-      {/* /////////////////// */}
+      
 
       
 
