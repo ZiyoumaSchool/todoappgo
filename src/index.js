@@ -17,9 +17,7 @@ ReactDOM.render(
     <HeaderComponent />
     <br/>
     {/* <App /> */}
-    {/* <InputTextNewTask /> 
-    <ButtonSubmit />  
-    <SectionAddTask />*/}
+    
     <TaskHomePage />
     <br/><br/><br/><br/><br/><br/>
     {/* <TaskList/>      */}
