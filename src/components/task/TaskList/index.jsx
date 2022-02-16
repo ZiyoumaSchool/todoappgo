@@ -86,7 +86,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
                 // title: myvalue, 
                 // dateEnd:  editTab[i].dateEnd,
                 // dateEnd:  day.selectedDay.toString(), 
-                state: "TASK_ARCHIVED"
+                state: "TASK_ARCHIVED",
+                userId : editTab[i].userId
         }).then(() => {
           console.log("TASK_ARCHIVED !");
         }).catch((error) => {
@@ -97,7 +98,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         id:  editTab[i].id, 
         title: editTab[i].title, 
         dateEnd:  editTab[i].dateEnd, 
-        state:  "TASK_ARCHIVED"
+        state:  "TASK_ARCHIVED",
+        userId : editTab[i].userId
       }
       notify("Tache : "+desc+" archivée avec succès");
 
@@ -111,7 +113,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
               // title: myvalue, 
               // dateEnd:  editTab[i].dateEnd,
               // dateEnd:  day.selectedDay.toString(), 
-              state: "TASK_INBOX"
+              state: "TASK_INBOX",
+              userId : editTab[i].userId
       }).then(() => {
         console.log("TASK_INBOX !");
       }).catch((error) => {
@@ -122,7 +125,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
        id:  editTab[i].id, 
        title: editTab[i].title, 
        dateEnd:  editTab[i].dateEnd, 
-       state:  "TASK_INBOX"
+       state:  "TASK_INBOX",
+       userId : editTab[i].userId
      }
      notify("Tache : "+desc+" restaurée avec succès");
     }
@@ -159,7 +163,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
               // title: myvalue, 
               // dateEnd:  editTab[i].dateEnd,
               // dateEnd:  day.selectedDay.toString(), 
-              state: "TASK_PINNED"
+              state: "TASK_PINNED",
+              userId : editTab[i].userId
       }).then(() => {
         console.log("TASK_PINNED !");        
       }).catch((error) => {
@@ -170,7 +175,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
         id:  editTab[i].id, 
         title: editTab[i].title, 
         dateEnd:  editTab[i].dateEnd, 
-        state:  "TASK_PINNED"
+        state:  "TASK_PINNED",
+        userId : editTab[i].userId
       }
 
       notify("Task : "+desc+" Pinned with success");
@@ -186,7 +192,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
             // title: myvalue, 
             // dateEnd:  editTab[i].dateEnd,
             // dateEnd:  day.selectedDay.toString(), 
-            state: "TASK_INBOX"
+            state: "TASK_INBOX",
+            userId : editTab[i].userId
     }).then(() => {
       console.log("TASK_INBOX !");        
     }).catch((error) => {
@@ -197,7 +204,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
       id:  editTab[i].id, 
       title: editTab[i].title, 
       dateEnd:  editTab[i].dateEnd, 
-      state:  "TASK_INBOX"
+      state:  "TASK_INBOX",
+      userId : editTab[i].userId
     }
 
     notify("Task : "+desc+" Unpinned with success");

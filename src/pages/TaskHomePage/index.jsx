@@ -72,7 +72,7 @@ export const ApplicationContext = createContext();
            items.push(doc.data())
            // list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})
          })
-         store.stateList[1](items.filter(item=>item.userId===store.userTab[0]))
+         store.stateList[1](items.filter(item=>(item.userId===store.userTab[0] && item.state!=="")))
          setLoader(false)
          list = items
      
