@@ -57,6 +57,8 @@ export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
   // This will show the Cofirmation Box
   const {store, setStore} = useContext(ApplicationContext);
 
+  console.log("LE CAMEROUN USER", store.userTab[0])
+
   const notify = (msg) => toast(msg);
   // const [myvalue, setMyvalue] = useState('');
 

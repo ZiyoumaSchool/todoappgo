@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useLocalStorage } from '../../useLocalStorage'
-import './form1.css';
+// import './form1.css';
 
 const Form1 = () => {
 //   const [name, setName] = useState("");

@@ -11,8 +11,8 @@ import HeaderComponent from './components/Header/index'
 import 'bootstrap/dist/css/bootstrap.css';
 // import TaskList from './components/Task/TaskList';
 import TaskHomePage from './pages/TaskHomePage';
-import Form1 from './components/Form1';
-import Form2 from './components/Form2';
+// import Form1 from './components/Form1';
+// import Form2 from './components/Form2';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -20,8 +20,8 @@ ReactDOM.render(
     <br/>
     {/* <App /> */}
     <TaskHomePage />
-    <Form1 />
-    <Form2 />
+    {/* <Form1 /> */}
+    {/* <Form2 /> */}
     <br/><br/><br/><br/><br/><br/>
     {/* <TaskList/>      */}
   </React.StrictMode>,

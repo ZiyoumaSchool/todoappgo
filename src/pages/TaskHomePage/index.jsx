@@ -9,6 +9,7 @@ import TaskList from '../../components/task/TaskList'
 import {createContext, useState, useEffect} from 'react';
 import db from '../../config/firebaseDb'
 import ModalComponent from '../../components/Modal';
+import {useLocalStorage, generate} from '../../useLocalStorage'
 
 
 let list = []
@@ -41,10 +42,13 @@ export const ApplicationContext = createContext();
     const [stateTask, setStateTask] = useState("")
     const [buttonFilter, setButtonFilter] = useState("ALL")
     const [labelFilter, setLabelFilter] = useState("")
+    const [userId, setUserId] = useLocalStorage("userId", Date.now()+generate());
+
+    console.log("USER ID", userId)
 
     // setState1(myvar)
     
-    console.log("888888",data)
+    console.log("888888",generate())
     const store = {
         stateList: [state1, setState1],
         showModal: [show, setShow],
@@ -53,7 +57,8 @@ export const ApplicationContext = createContext();
         dateTaskTab:[dateTask, setDateTask],
         stateTaskTab: [stateTask, setStateTask],
         buttonFilterTab:[buttonFilter, setButtonFilter],
-        labelFilterTab:[labelFilter, setLabelFilter]
+        labelFilterTab:[labelFilter, setLabelFilter],
+        userTab:[userId, setUserId]
         
       }     
     console.log("77777777 DATA", myvar)
@@ -67,7 +72,7 @@ export const ApplicationContext = createContext();
            items.push(doc.data())
            // list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})
          })
-         store.stateList[1](items)
+         store.stateList[1](items.filter(item=>item.userId===store.userTab[0]))
          setLoader(false)
          list = items
      
