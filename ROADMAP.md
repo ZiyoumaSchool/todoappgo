@@ -5,19 +5,16 @@
 **[CURRENT_TASKS]**
 
 - [] Proceed tests coverage 5%
+- [] Auth
+- [] Loader for Data
 
 
-**[2.0.0] - [2022-02-10]**
+**[2.1.0] - [2022-03-03]**
  Expected delevery date of the first version that include the basic features
- - [x] Add a firebase database
- - [x] Add a task to the DB
- - [x] Update the Task DB
- - [x] Pin the Task and remove Pin DB
- - [x] Show realtime changes on the task list
+- [] Proceed tests coverage 5%
+- [] Auth
+- [] Loader for Data
 
- - [x] Fix form Date on SectionEditTask
- - [x] Fix Select Task Line
- - [x] manage the sessions with the database using local storage
 
 
 

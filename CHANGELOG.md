@@ -4,8 +4,23 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
-## [1.2.0] - [2022-01-12]**
- Expected delevery date of the first version that include the basic features
+
+**[2.0.0] - [2022-02-21]**
+### Added
+ - Add a firebase database
+ - Add a task to the DB
+ - Update the Task DB
+ - Pin the Task and remove Pin DB
+ - Show realtime changes on the task list
+ - manage the sessions with the database using local storage
+### Fixed
+ - Fix form Date on SectionEditTask
+ - Fix Select Task Line
+ 
+
+
+## [1.2.0] - [2022-01-12]*
+### Added
  - Add a task with date
  - Edit a task
  - Archive a task 

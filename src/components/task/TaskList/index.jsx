@@ -1,6 +1,5 @@
 import React, {useContext, useState}  from 'react';
 import PropTypes from 'prop-types';
-// import {Tasksource} from '../../../datas/Tasksource';
 import "../../../index.css"
 import { ApplicationContext } from '../../../pages/TaskHomePage/index';
 
@@ -9,6 +8,7 @@ import '../task.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import { Loader } from '../../../utils/styles/Atoms';
 import 'react-tabs/style/react-tabs.css';
 import db from '../../../config/firebaseDb';
 import "firebase/compat/firestore";
@@ -20,14 +20,21 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
+import styled from 'styled-components'
 
 
 export default function TaskList({ loading, tasks, onPinTask, onArchiveTask }) {
 
-  //const {state1, setState1} = useContext(ApplicationContext);
+
   const [open, setOpen] = useState();
   const [id, setId] = useState()
   const [title, setTitle] = useState()
+  let [load, setLoad] = useState(loading)
+  const LoaderWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+`
+  // let tasksInOrder = []
 
   ///////-------------------------------------------------------
 
@@ -254,18 +261,36 @@ async function deleteDocument(id) {
       </span>
     </div>
   );
-  if (loading) {
+  // if (load) {
+  //   setTimeout(function() {
+  //    tasksInOrder = [
+  //   ...tasks.filter(t => t.state === 'TASK_PINNED'),
+  //   ...tasks.filter(t => t.state !== 'TASK_PINNED'),
+  // ];
+  //  }, 500);
+  // if (store.loaderTab[0]) {
+  //   return (
+  //     <div className="list-items">
+  //       {LoadingRow}
+  //       {LoadingRow}
+  //       {LoadingRow}
+  //       {LoadingRow}
+  //       {LoadingRow}
+  //       {LoadingRow}
+  //     </div>
+  //   );
+    
+  // }
+
+  if (store.loaderTab[0]) {
     return (
-      <div className="list-items">
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-        {LoadingRow}
-      </div>
-    );
-  }
+    <LoaderWrapper>
+      <Loader data-testid="loader" />
+    </LoaderWrapper>
+  )
+    }
+
+
   if (tasks.length === 0) {
     return (
       <div className="list-items">
@@ -277,10 +302,14 @@ async function deleteDocument(id) {
       </div>
     );
   }
+
+  // store.loaderTab[1](false)
+  // store.stateList[1](store.stateList[0].filter(item=>item.state!==""))
   const tasksInOrder = [
     ...tasks.filter(t => t.state === 'TASK_PINNED'),
     ...tasks.filter(t => t.state !== 'TASK_PINNED'),
   ];
+  
   return (
   <div>
 

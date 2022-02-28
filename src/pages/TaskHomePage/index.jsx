@@ -12,11 +12,13 @@ import ModalComponent from '../../components/Modal';
 import {useLocalStorage, generate} from '../../useLocalStorage'
 
 
+
 let list = []
 
 const ref = db.collection('tasks')
 console.log("REFERENCE", ref)
 console.log("default 000 =>",list)
+
 
 export const ApplicationContext = createContext();
 
@@ -58,11 +60,17 @@ export const ApplicationContext = createContext();
         stateTaskTab: [stateTask, setStateTask],
         buttonFilterTab:[buttonFilter, setButtonFilter],
         labelFilterTab:[labelFilter, setLabelFilter],
-        userTab:[userId, setUserId]
+        userTab:[userId, setUserId],
+        loaderTab:[loader, setLoader]
         
       }     
     console.log("77777777 DATA", myvar)
-      
+    
+
+    // const { data, isLoading, error } = useFetch(
+    //   // `http://localhost:8000/freelances`
+    //   'https://api-shiny-agency.herokuapp.com/freelances'
+    //  )
 
 
     function getData(){
@@ -73,7 +81,8 @@ export const ApplicationContext = createContext();
            // list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})
          })
          store.stateList[1](items.filter(item=>(item.userId===store.userTab[0] && item.state!=="")))
-         setLoader(false)
+        //  setLoader(false)
+        store.loaderTab[1](false)
          list = items
      
        })
@@ -103,7 +112,7 @@ export const ApplicationContext = createContext();
             <SectionFilterTask />
             <ModalComponent title="Edit Task" show={store.showModal[0]} component={TaskEditComponent()} />
             {/* <TaskList tasks={myvar} /> */}
-            <TaskList tasks={store.stateList[0]} />
+            <TaskList tasks={store.stateList[0]} loading={store.loaderTab[0]} />
         </ApplicationContext.Provider>
         
 
