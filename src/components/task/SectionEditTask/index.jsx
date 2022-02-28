@@ -68,7 +68,8 @@ export default function SectionEditTask(Tasksource) {
               title: myvalue, 
               // dateEnd:  editTab[i].dateEnd,
               dateEnd:  day.selectedDay.toString(), 
-              state:  editTab[i].state
+              state:  editTab[i].state,
+              userId : editTab[i].userId
         })
         // const docRef = db.collection('tasks').doc(editTab[i].id);
         // console.log("PECEECCE",db.collection('tasks').doc(editTab[i].id.toString()))
@@ -96,7 +97,8 @@ export default function SectionEditTask(Tasksource) {
         title: myvalue, 
         // dateEnd:  editTab[i].dateEnd,
         dateEnd:  day.selectedDay.toString(), 
-        state:  editTab[i].state
+        state:  editTab[i].state,
+        userId : editTab[i].userId
       }
     }
     }

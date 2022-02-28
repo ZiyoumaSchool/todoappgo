@@ -31,7 +31,7 @@ export default function SectionFilterTask(Tasksource, onClickFilter) {
 
   const notify = (msg) => toast(msg);
 
-  console.log("Les dates", Date());
+  console.log("Les dates Filter", Date());
 
 
   const val = {title:'', id:Date.now()}

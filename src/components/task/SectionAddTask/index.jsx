@@ -33,7 +33,7 @@ export default function SectionAddTask(Tasksource) {
 
   const notify = (msg) => toast(msg);
 
-  console.log("Les dates", Date());
+  console.log("Les dates", Date.now());
 
 
   const val = {title:'', id:Date.now()}
@@ -108,6 +108,7 @@ export default function SectionAddTask(Tasksource) {
         // dateEnd:  editTab[i].dateEnd,
         dateEnd: d,
 				state : "TASK_INBOX",
+        userId : store.userTab[0]
   })
 			
 		 });
