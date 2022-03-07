@@ -17,9 +17,9 @@ import {doc, collection, onSnapshot, addDoc, query, orderBy, deleteDoc, setDoc} 
 
 
 
-export default function SectionEditTask(Tasksource) {
+export default function SectionEditTask() {
 
-  const {store, setStore} = useContext(ApplicationContext);
+  const {store} = useContext(ApplicationContext);
   const v = store.titleTaskTab[0]
   const d = store.dateTaskTab[0]
   const birthday = new Date(d);

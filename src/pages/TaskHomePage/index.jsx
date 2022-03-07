@@ -2,14 +2,15 @@ import React from 'react';
 import SectionAddTask from '../../components/task/SectionAddTask'
 import SectionEditTask from '../../components/task/SectionEditTask'
 import SectionFilterTask from '../../components/task/SectionFilterTask'
-import {Tasksource} from '../../datas/Tasksource';
-import {DataSource} from '../../datas/Tasksource';
 import { v4 as uuidv4 } from 'uuid';
 import TaskList from '../../components/task/TaskList'
 import {createContext, useState, useEffect} from 'react';
 import db from '../../config/firebaseDb'
 import ModalComponent from '../../components/Modal';
 import {useLocalStorage, generate} from '../../useLocalStorage'
+import HeaderComponent from '../../components/Header'
+import firebase from '../../service/firebase'
+import Login from '../Login'
 
 
 
@@ -88,10 +89,14 @@ export const ApplicationContext = createContext();
        })
      }
      
+     const [user, setUser] = useState(null);
      
      //getData()
      
-     useEffect(()=> {
+     useEffect(()=> {    
+      firebase.auth().onAuthStateChanged(user => {
+        setUser(user);
+      })
      getData()
        console.log("Dityrambique DATA", data)
        
@@ -102,12 +107,27 @@ export const ApplicationContext = createContext();
         return (        
                 <SectionEditTask />                
               )
-      }    
+      } 
+      
+    // Check if the user is connected    
+
+    // useEffect(() => {
+    //   firebase.auth().onAuthStateChanged(user => {
+    //     setUser(user);
+    //   })
+    // }, [])
+
+	// END Check if the user is connected
 
 
     return (
+    <>
+      <div>
+    
+      {user ? 
      <>
         <ApplicationContext.Provider value={{store}}>
+            <HeaderComponent user={user} />
             <SectionAddTask/>
             <SectionFilterTask />
             <ModalComponent title="Edit Task" show={store.showModal[0]} component={TaskEditComponent()} />
@@ -115,8 +135,15 @@ export const ApplicationContext = createContext();
             <TaskList tasks={store.stateList[0]} loading={store.loaderTab[0]} />
         </ApplicationContext.Provider>
         
-
     </>
+
+        : <div>
+        <Login/>
+      </div>
+      }
+        </div>
+
+    </> 
         
 
     )

@@ -2,28 +2,26 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-// import App from './App';
-// import InputTextNewTask from './components/Task/InputTextNewTask'
-// import ButtonSubmit from './components/ButtonSubmit';
-// import SectionAddTask from './components/Task/SectionAddTask';
 import reportWebVitals from './reportWebVitals';
 import HeaderComponent from './components/Header/index'
 import 'bootstrap/dist/css/bootstrap.css';
-// import TaskList from './components/Task/TaskList';
 import TaskHomePage from './pages/TaskHomePage';
-// import Form1 from './components/Form1';
-// import Form2 from './components/Form2';
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+
 
 ReactDOM.render(
   <React.StrictMode>
-    <HeaderComponent />
-    <br/>
-    {/* <App /> */}
-    <TaskHomePage />
-    {/* <Form1 /> */}
-    {/* <Form2 /> */}
-    <br/><br/><br/><br/><br/><br/>
-    {/* <TaskList/>      */}
+    <Router>
+    <Routes>
+    {/* <HeaderComponent /> */}
+    <Route path="/" element={<TaskHomePage />} />
+    </Routes>
+    </Router>
+ 
   </React.StrictMode>,
   document.getElementById('root')
 );

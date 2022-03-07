@@ -25,7 +25,7 @@ export function format(){
 
 export default function SectionAddTask(Tasksource) {
 
-  const {store, setStore} = useContext(ApplicationContext);
+  const {store} = useContext(ApplicationContext);
   const [myvalue, setMyvalue] = useState('');
   const [day, setDay] = useState({selectedDay:''});
   const [value, setValue] = useState("")

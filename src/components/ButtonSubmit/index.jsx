@@ -56,7 +56,7 @@ ButtonSubmit.propTypes = {
     primary: true,
     size: 'medium',
     label: "Add",
-    disable:"true",
+    disable:true,
     onClick: undefined,
   };
 

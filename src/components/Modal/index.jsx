@@ -23,7 +23,7 @@ import { ApplicationContext } from '../../pages/TaskHomePage/index'
   export default function ModalComponent({ title, component, show }) {
     // const [smShow, setSmShow] = useState(false);
     //const [lgShow, setLgShow] = useState(show);
-    const {store, setStore} = useContext(ApplicationContext);
+    const {store} = useContext(ApplicationContext);
   
     return (
       <>
