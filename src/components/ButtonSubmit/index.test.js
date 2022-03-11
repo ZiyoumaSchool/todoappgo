@@ -32,10 +32,10 @@ afterEach(() => {
 describe('ButtonSubmit', () => {
     test('Should render properly disabled', async () => {
         myValue = ""
-        render(<ButtonSubmit disable={myValue===""?"":"disabled"} />)
+        render(<ButtonSubmit disable={myValue===""? true : false} />)
         // const disable=myValue===""?true:false
         const buttonSub = screen.getByRole('button')
-        expect(buttonSub.getAttribute("disabled")).toBe(null)
+        expect(buttonSub.disabled).toEqual(true)
         
         
 
@@ -43,10 +43,10 @@ describe('ButtonSubmit', () => {
 
     test('Should render properly Enable', async () => {
       myValue = "Poulet braisé"
-      render(<ButtonSubmit disable={myValue===""?"":"disabled"} />)
+      render(<ButtonSubmit disable={myValue===""? true : false} />)
       // const disable=myValue===""?true:false
       const buttonSub = screen.getByRole('button')
-      expect(buttonSub.getAttribute("disabled")).toBe("")
+      expect(buttonSub.disabled).toEqual(false)
       
       
 

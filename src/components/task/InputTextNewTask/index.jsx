@@ -13,7 +13,7 @@ function InputTextNewTask({title, myvalue, handleChange}) {
 //export default function TaskAdd({ task: { id, title, dateBegin, dateEnd, description, state }, onArchiveTask, onPinTask }) {
   return (
     <div className='add-task-2'>
-          <input type="text"  name="title" value={myvalue}  placeholder="Add a new task - Press Enter"
+          <input id="add-task" type="text"  name="title" value={myvalue}  placeholder="Add a new task - Press Enter"
           className="form-control border border-primary rounded" onChange={handleChange} />
 
 
