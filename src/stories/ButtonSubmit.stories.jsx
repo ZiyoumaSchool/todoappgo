@@ -15,26 +15,28 @@ export default {
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args
 const Template = (args) => <ButtonSubmit {...args} />;
 
-export const Primary = Template.bind({});
+export const Enable = Template.bind({});
 // More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
+Enable.args = {
   primary: true,
   label: 'ButtonSubmit',
+  disable:false,
 };
 
-export const Secondary = Template.bind({});
-Secondary.args = {
+export const Disable = Template.bind({});
+Disable.args = {
   label: 'ButtonSubmit',
+  disable:true,
 };
 
-export const Large = Template.bind({});
-Large.args = {
-  size: 'large',
-  label: 'ButtonSubmit',
-};
+// export const Large = Template.bind({});
+// Large.args = {
+//   size: 'large',
+//   label: 'ButtonSubmit',
+// };
 
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'ButtonSubmit',
-};
+// export const Small = Template.bind({});
+// Small.args = {
+//   size: 'small',
+//   label: 'ButtonSubmit',
+// };

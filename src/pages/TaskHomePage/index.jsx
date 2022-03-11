@@ -9,6 +9,7 @@ import db from '../../config/firebaseDb'
 import ModalComponent from '../../components/Modal';
 import {useLocalStorage, generate} from '../../useLocalStorage'
 import HeaderComponent from '../../components/Header'
+import Hello from '../../components/Hello'
 import firebase from '../../service/firebase'
 import Login from '../Login'
 
@@ -100,7 +101,7 @@ export const ApplicationContext = createContext();
      getData()
        console.log("Dityrambique DATA", data)
        
-     },[])
+     })
      
 
     const TaskEditComponent =()=>{
@@ -129,6 +130,8 @@ export const ApplicationContext = createContext();
         <ApplicationContext.Provider value={{store}}>
             <HeaderComponent user={user} />
             <SectionAddTask/>
+            <Hello name={user.displayName}/>
+            {/* <Hello/> */}
             <SectionFilterTask />
             <ModalComponent title="Edit Task" show={store.showModal[0]} component={TaskEditComponent()} />
             {/* <TaskList tasks={myvar} /> */}

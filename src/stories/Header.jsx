@@ -10,27 +10,28 @@ import { auth } from '../service/firebase';
 import './header.css';
 
 export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
+  // console.log("TARITARA", {user})
   <header>
     <div className="wrapper">
-      <div>      
+      <div>
         <div className='text-primary'>
-        <Link to="/">
-          <img src = {logo} width="50px" height="50px" alt='TodoAppGo' />
-        </Link>
-                <h4>ToDoAppGo</h4>
-        </div>      
+          <Link to="/">
+            <img src={logo} width="50px" height="50px" alt='TodoAppGo' />
+          </Link>
+          <h4>ToDoAppGo {user} </h4>
+        </div>
       </div>
 
       <div className="lmj-user">
-                              
-                              {user.displayName !== ""}  {
+
+        {/* {user.displayName !== ""}  {
                               <div align="right">
                               <img className="rounded-circle z-depth-2" alt="100x100" src={user.photoURL} alt="" height="50px" width="50px" /><p></p>                
                               <span className="text-primary"><h4> <span></span>{user.displayName}</h4></span><br/>
                               <button className="btn btn-outline-dark" onClick={() => auth.signOut()}>Sign out</button>
                               </div>
-                              }                               
-        </div>
+                              }                                */}
+      </div>
 
 
       <div>
