@@ -8,7 +8,7 @@ import Hello from ".";
 
 let container = null;
 
-beforeEach(() =>{
+beforeEach(() => {
     //met en place un élément DOM comme cible de rendu
     container = document.createElement("div");
     document.body.appendChild(container)
@@ -23,24 +23,26 @@ afterEach(() => {
 });
 
 
-it("s'affiche avec ou sans nom", () => {
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    act(() => {
-        render(<Hello name=""/>, container);
+describe("s'affiche avec ou sans nom", () => {
+
+    test('Should render Empty', async () => {
+        render(<Hello name="" />, container);
+        expect(container.textContent).toBe("Salut, étranger");
 
     });
 
-    expect(container.textContent).toBe("Salut, étranger");
 
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-    act(() => {
+
+    test('Should render Jenny', async () => {
         render(<Hello name="Jenny" />, container);
-      });
-      expect(container.textContent).toBe("Bonjour, Jenny !");
-    // eslint-disable-next-line testing-library/no-unnecessary-act
-      act(() => {
+        expect(container.textContent).toBe("Bonjour, Jenny !");
+    });
+
+
+    test('Should render Margaret', async () => {
         render(<Hello name="Margaret" />, container);
-      });
-      expect(container.textContent).toBe("Bonjour, Margaret !");
-    
+        expect(container.textContent).toBe("Bonjour, Margaret !");
+    });
+
+
 })

@@ -3,22 +3,13 @@ import PropTypes from 'prop-types';
 import './ButtonSubmit.css';
 
 
-function ButtonSubmit ({ primary, disable, backgroundColor, size, label, onClick, ...props }) {
-
-    //const mode = primary ? 'button--primary' : 'button--secondary';
+function ButtonSubmit ({ disable, label, onClick }) {
 
     return(
         <div className="buttonsubmit1">
-            {/* <button class={['button', `button--${size}`, mode].join(' ')} type="button" disabled={disable}>
-                {label}
-            </button> */}
-            {/* <input type="button" 
-               className="btn btn-primary" 
-               size={size} value={label} 
-               disabled={disable} /> */}
+            
             <button 
             className="btn btn-primary" 
-            size={size}
             disabled={disable}
             onClick={onClick}
             >
@@ -29,18 +20,7 @@ function ButtonSubmit ({ primary, disable, backgroundColor, size, label, onClick
 }
 
 ButtonSubmit.propTypes = {
-    /**
-     * Is this the principal call to action on the page?
-     */
-    primary: PropTypes.bool,
-    /**
-     * What background color to use
-     */
-    backgroundColor: PropTypes.string,
-    /**
-     * How large should the button be?
-     */
-    size: PropTypes.oneOf(['small', 'medium', 'large']),
+   
     /**
      * Button contents
      */

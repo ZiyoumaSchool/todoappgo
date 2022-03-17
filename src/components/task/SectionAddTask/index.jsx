@@ -159,7 +159,7 @@ export default function SectionAddTask(Tasksource) {
               </div>
 
             <ButtonSubmit 
-                // disable={value===""?"true":"false"}
+                label='Add'
                 disable={!myvalue} 
                 onClick={handleAdd}
              /> 
