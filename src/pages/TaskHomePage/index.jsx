@@ -1,3 +1,5 @@
+// TassHomePage Component
+
 import React from 'react';
 import SectionAddTask from '../../components/task/SectionAddTask'
 import SectionEditTask from '../../components/task/SectionEditTask'
@@ -9,7 +11,6 @@ import db from '../../config/firebaseDb'
 import ModalComponent from '../../components/Modal';
 import {useLocalStorage, generate} from '../../useLocalStorage'
 import HeaderComponent from '../../components/Header'
-import Hello from '../../components/Hello'
 import firebase from '../../service/firebase'
 import Login from '../Login'
 
@@ -32,12 +33,8 @@ export const ApplicationContext = createContext();
   const [loader, setLoader] = useState(true)
  
   //  DataSource();
-// console.log("STORAGEEEEEE=>",store.stateList[0])
- 
      const myvar = data
-  // const myvar = DataSource()
-
-    // console.log("VOILA UNE BONNE SOURCE",myvar)
+ 
     const [state1, setState1] = useState(myvar);
     const [show, setShow] = useState(false);
     const [idTask, setIdTask] = useState(0);
@@ -83,8 +80,7 @@ export const ApplicationContext = createContext();
            // list.push({id : data.id, title: data.title, state: data.state, dateEnd: data.dateEnd})
          })
          store.stateList[1](items.filter(item=>(item.userId===store.userTab[0] && item.state!=="")))
-        //  setLoader(false)
-        store.loaderTab[1](false)
+         store.loaderTab[1](false)
          list = items
      
        })
@@ -110,17 +106,7 @@ export const ApplicationContext = createContext();
               )
       } 
       
-    // Check if the user is connected    
-
-    // useEffect(() => {
-    //   firebase.auth().onAuthStateChanged(user => {
-    //     setUser(user);
-    //   })
-    // }, [])
-
-	// END Check if the user is connected
-
-
+    
     return (
     <>
       <div>
@@ -130,7 +116,7 @@ export const ApplicationContext = createContext();
         <ApplicationContext.Provider value={{store}}>
             <HeaderComponent user={user} />
             <SectionAddTask/>
-            <Hello name={user.displayName}/>
+            {/* <Hello name={user.displayName}/> */}
             {/* <Hello/> */}
             <SectionFilterTask />
             <ModalComponent title="Edit Task" show={store.showModal[0]} component={TaskEditComponent()} />

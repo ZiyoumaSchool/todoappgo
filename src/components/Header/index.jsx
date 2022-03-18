@@ -2,10 +2,10 @@ import React from 'react';
 import {Header} from '../../stories/Header'
 
 
-function HeaderComponent() {
+function HeaderComponent({user}) {
 
     return (
-        <Header/>
+        <Header user={user}/>
     )
 
 }
