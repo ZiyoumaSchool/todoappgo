@@ -15,7 +15,7 @@ export const Header = ({ user, onLogin, onLogout, onCreateAccount }) => (
     <div className="wrapperHeader">
       
 
-      <div>
+      <div className='user'>
 
       <center>
         <div className='text-primary user'>

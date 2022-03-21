@@ -97,7 +97,7 @@ export const ApplicationContext = createContext();
      getData()
        console.log("Dityrambique DATA", data)
        
-     },[])
+     })
      
 
     const TaskEditComponent =()=>{
