@@ -1,5 +1,4 @@
 import React, {useContext} from 'react';
-import ReactDOM from 'react-dom';
 import { ApplicationContext } from '../../../pages/TaskHomePage/index'
 import '../task.css';
 import InputTextNewTask from '../InputTextNewTask/index'
@@ -12,7 +11,7 @@ import 'react-day-picker/lib/style.css';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import db from '../../../config/firebaseDb';
-import {doc, collection, onSnapshot, addDoc, query, orderBy, deleteDoc, setDoc} from "firebase/firestore"
+import {doc, setDoc} from "firebase/firestore"
 
 
 
@@ -50,17 +49,14 @@ export default function SectionAddTask(Tasksource) {
 
   function handleChange (event){
           setMyvalue(event.target.value);
-          // var userLanguage = window.navigator.userLanguage || window.navigator.language;
-          // const regexDate = /^\d{2}\/\d{2}\/\d{4}$/
-          console.log("p35", userLanguage);
-          // console.log("p351", regexDate);
+           console.log("p35", userLanguage);
           let mdy = ['month', 'date', 'year'];
           let hms = ['hour', 'minute', 'second'];
           const start = Date.now();
           console.log("LE SUCRE DU LAIT", start)
           mdy = new Date().toLocaleDateString(userLanguage).split("/");
           hms = new Date().toLocaleTimeString(userLanguage).split(/:| /);
-          // let v1 = new Date().toLocaleDateString(userLanguage).split("/");
+          
           console.log("Les shawarma", varDate)
           console.log(mdy[0],hms);
         };
@@ -71,41 +67,17 @@ export default function SectionAddTask(Tasksource) {
     console.log("patatras", myvalue);
     console.log("Le big store YAYA", store.stateList[0])
     
-    //const date = "2000-01-31T11:59:00-05:00";
-    //const today = new Date();
-
-    // const date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
-    // notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
-
-    ////********* */
     var size = 0;
     db.collection('tasks').get().then(snap => {
 			size = snap.size // will return the collection size
       const d = day.selectedDay.toString()===""?today.toString() : day.selectedDay.toString()
       console.log("DADADAD45",d)
-      
-			// db.collection("tasks").add({
-			// 	id:size+1,
-			// 	title: myvalue,
-			// 	dateEnd: d,
-			// 	state : "TASK_INBOX",
-				
-			// })
-			// .then((docRef) => {
-			// 	// alert("Data Successfully Submitted");
-      //   notify("Nouvelle Tache : "+myvalue+" ajoutée avec succès");
-			// })
-			// .catch((error) => {
-			// 	console.error("Error adding document: ", error);
-      //   alert("YOU LOOSE");
-			// });
 
       size = size +1 
       const itemRef = doc(db, "tasks", size.toString());
       setDoc(itemRef, {
         id:  size, 
         title: myvalue, 
-        // dateEnd:  editTab[i].dateEnd,
         dateEnd: d,
 				state : "TASK_INBOX",
         userId : store.userTab[0]
@@ -145,9 +117,10 @@ export default function SectionAddTask(Tasksource) {
     <div className="form-group  wrapper">
       <div className='add-task-1'> 
             <ToastContainer />
-            <InputTextNewTask 
+            <InputTextNewTask
                 myvalue={myvalue} 
                 handleChange={handleChange}
+               
              />
              <div className='daypicker1'>
                 <DayPickerInput 

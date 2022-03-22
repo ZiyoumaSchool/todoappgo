@@ -99,6 +99,10 @@ describe('ButtonSubmit', () => {
           expect(onClick.mock.calls.length).toEqual(1);
     
           })
+    
+  test('Should render without crash', async () => {
+            render(<ButtonSubmit />)
+        })
   
 })
 
