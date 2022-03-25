@@ -105,7 +105,7 @@ describe('SectionAddTask', () => {
         render(            
         <InputTextNewTask myvalue={varTest} handleChange={handleChange} data-testid="my-input" />        
         )
-    const inputTest = screen.getByRole('textbox');
+   let inputTest = screen.getByRole('textbox');
         // coTest = await screen.findByTestId(`my-input`);
         console.log("Change 2022", inputTest.value)        
         
@@ -130,11 +130,17 @@ describe('SectionAddTask', () => {
          </div>      
             )
             //const buttonTest = screen.getByRole('button')
-            const buttonTest = shallow((<ButtonSubmit onClick={handleAdd}/>));
+            const buttonTest = shallow((<ButtonSubmit onClick={handleAdd} disable={false}/>));
             buttonTest.find('button').simulate('click');
+            // const inputTest1 = screen.getByRole('textbox');
+        // fireEvent.change(inputTest1, {target: {value:"Peace Be still"}})
+        
+        
+        // console.log("Yaoundé", inputTest1.value)
         handleDayChange("2022-4-31".toString())
         expect(fakeDate.selectedDay.toString()).toBe("2022-4-31".toString())
         expect(Tasksource.length).toBe(3)
+        
         handleAdd()
     })
 
