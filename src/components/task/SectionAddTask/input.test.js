@@ -11,7 +11,8 @@ import React from 'react';
 import InputTextNewTask from '../InputTextNewTask/index'
 import ButtonSubmit from '../../ButtonSubmit';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
-import Tasksource from '../../../datas/TasksourceOld';
+
+ 
 
 
 
@@ -41,6 +42,23 @@ afterEach(() => {
 
 describe('SectionAddTask', () => {
 
+
+    let Tasksource = [
+        {
+          id: 1,
+          title: 'The Godfather25',
+          dateEnd: 'Tue Jan 14 2022 12:06:37 GMT+0100',
+          state: 'TASK_PINNED'
+        },
+        {
+          id: 2,
+          title: 'Inception',
+          dateEnd: 'Tue Jan 16 2022 12:06:37 GMT+0100',
+          state: 'TASK_ARCHIVED'
+        },
+       
+      ];
+
     var fakeDate = { selectedDay: "2022-3-18" }
 
     var tt = "jajaj";
@@ -58,10 +76,19 @@ describe('SectionAddTask', () => {
         console.log("Peaceful Journey", fakeDate.selectedDay.toString());
       }
     
-    function handleAdd () {
+    function handleAdd (id0, title0, dateEnd0, state0 ) {
+            id0 = 1 + Tasksource.length
+            title0 = tt
+            dateEnd0 = today.toString()
+            state0 = "TASK_INBOX"
 
-        console.log("TaskSource", Tasksource)
-
+            Tasksource.push({id:id0, title:title0, dateEnd:dateEnd0, state:state0} )
+            for(var i=0; i < Tasksource.length; i++)
+        
+            console.log("OPERA01", Tasksource[i].title)
+        
+        
+        
     }
 
       
@@ -99,11 +126,15 @@ describe('SectionAddTask', () => {
             placeholder = ""
             value = {today.toLocaleDateString(userLanguage)}
         />
-        <ButtonSubmit disable={tt===""} label="" />
+        {/* <ButtonSubmit disable={tt===""} label="" onClick={handleAdd} /> */}
          </div>      
             )
+            //const buttonTest = screen.getByRole('button')
+            const buttonTest = shallow((<ButtonSubmit onClick={handleAdd}/>));
+            buttonTest.find('button').simulate('click');
         handleDayChange("2022-4-31".toString())
         expect(fakeDate.selectedDay.toString()).toBe("2022-4-31".toString())
+        expect(Tasksource.length).toBe(3)
         handleAdd()
     })
 
