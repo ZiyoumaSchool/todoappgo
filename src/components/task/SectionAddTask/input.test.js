@@ -11,6 +11,7 @@ import React from 'react';
 import InputTextNewTask from '../InputTextNewTask/index'
 import ButtonSubmit from '../../ButtonSubmit';
 import DayPickerInput from 'react-day-picker/DayPickerInput';
+import Tasksource from '../../../datas/TasksourceOld';
 
 
 
@@ -19,6 +20,7 @@ import DayPickerInput from 'react-day-picker/DayPickerInput';
 
 let container = null;
 let myValue = "";
+let list=[]
 
 
 configure({adapter: new Adapter()});
@@ -41,7 +43,10 @@ describe('SectionAddTask', () => {
 
     var fakeDate = { selectedDay: "2022-3-18" }
 
-    var tt = "jajaj"
+    var tt = "jajaj";
+    let varDate= Date();
+    let today = new Date(varDate);
+    let userLanguage = window.navigator.userLanguage || window.navigator.language;
         // const handleChange = jest.fn();
         var handleChange = ()=> {
                 tt = "nuvibz"
@@ -53,38 +58,53 @@ describe('SectionAddTask', () => {
         console.log("Peaceful Journey", fakeDate.selectedDay.toString());
       }
     
-    // function handleChange(event) {
+    function handleAdd () {
 
-    // }
+        console.log("TaskSource", Tasksource)
+
+    }
 
       
-    test('SectionAddTask display date well', async () => {
+    test('handleDayChange function should work', async () => {
         // render(<SectionAddTask />)
         handleDayChange("2022-4-31".toString())
         expect(fakeDate.selectedDay.toString()).toBe("2022-4-31".toString())
     })
 
-    test('Text should change on typing', async () => {
-               
+    test('handleChange - Text should change on typing', async () => {
+            
+        const varTest = "Peace in Africa"
         
         render(            
-        <InputTextNewTask myvalue={tt} handleChange={handleChange} data-testid="my-input" />        
+        <InputTextNewTask myvalue={varTest} handleChange={handleChange} data-testid="my-input" />        
         )
     const inputTest = screen.getByRole('textbox');
         // coTest = await screen.findByTestId(`my-input`);
-        console.log("Peace457", inputTest.value)
+        console.log("Change 2022", inputTest.value)        
         
-        
-    expect(inputTest.value).toBe('jajaj'); // to test input value
-    fireEvent.change(inputTest, { target: { value: 'nuvibz' } }); // triggers onChange event
-    
-     const inputTest1 = screen.getByRole('textbox');
-     await userEvent.type(screen.getByRole('textbox'), 'nuvibz')
+    expect(inputTest.value).toBe('Peace in Africa'); // to test input value
+    // fireEvent.change(inputTest, { target: { value: 'nuvibz' } }); // triggers onChange event    
+    })
 
-    //  const InputEl = screen.getByTestId('my-input')
-    
-     console.log("MTN", inputTest1.value)
-    
+
+    test('handleAdd function should perform adding a new task', async () => {
+        
+        
+        render(  
+        <div>          
+            <InputTextNewTask myvalue={tt} handleChange={handleChange} data-testid="my-input" />
+            <DayPickerInput 
+            day={fakeDate}
+            onDayChange = {handleDayChange}
+            placeholder = ""
+            value = {today.toLocaleDateString(userLanguage)}
+        />
+        <ButtonSubmit disable={tt===""} label="" />
+         </div>      
+            )
+        handleDayChange("2022-4-31".toString())
+        expect(fakeDate.selectedDay.toString()).toBe("2022-4-31".toString())
+        handleAdd()
     })
 
     
