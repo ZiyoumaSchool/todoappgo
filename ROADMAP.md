@@ -2,25 +2,20 @@
 
 **[x.x.x] - [ESTIMATED_DELIVERY_DATE]**
 
-**[CURRENT_TASKS]**
 
-- [] Proceed tests coverage 5%
-
-
-**[2.0.0] - [2022-02-10]**
+**[IN PROGRESS] - [2.1.0] - [2022-03-13]**
  Expected delevery date of the first version that include the basic features
- - [x] Add a firebase database
- - [x] Add a task to the DB
- - [x] Update the Task DB
- - [x] Pin the Task and remove Pin DB
- - [x] Show realtime changes on the task list
+- [x] Proceed tests for button submit 
+- [x] Proceed tests for InputTextNewTask
+- [x] Proceed tests for SectionAddTask
+- [x] Proceed tests for TaskHomePage  
+- [] Proceed tests coverage 5%
+- [] Auth
+- [x] Loader for Data
 
- - [x] Fix form Date on SectionEditTask
- - [x] Fix Select Task Line
- - [x] manage the sessions with the database using local storage
 
 
 
 
 [BACKLOG]
-- [] Use DINNextLTPro-Bold as default font-family
+- 
