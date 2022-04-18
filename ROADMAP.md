@@ -18,6 +18,7 @@
  - [x] Fix form Date on SectionEditTask
  - [x] Fix Select Task Line
  - [x] manage the sessions with the database using local storage
+ - [] Proceed tests coverage 5%
 
 
 
